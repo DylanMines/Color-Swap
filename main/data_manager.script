@@ -1,0 +1,37 @@
+local data = require("main.game-data")
+local game_save = require("Games.game_save")
+
+function init(self)
+	self.file_path = sys.get_save_file("Color_Swap", "save.gamedata")
+	local loaded_data = sys.load(self.file_path)
+
+	--/home/dylan/Downloads/tilesheet/0.pngpprint(loaded_data)
+	if loaded_data == {} then
+		return
+	end
+	for i,v in pairs(loaded_data) do
+		data[i] = v
+	end
+	self.game_path = sys.get_save_file("Color_Swap", "game.boardstate")
+	if data.saved == true then
+		local loaded_game = sys.load(self.game_path)
+		for i,v in pairs(loaded_game) do
+			game_save[i] = v
+		end
+	end
+	msg.post("/GUI#Main_UI", "loaded_data")
+end
+function final(self)
+	if not sys.save(self.file_path, data) then
+		print("not saved")
+	end
+	if data.saved == true then
+		if not sys.save(self.game_path, game_save) then
+			print("game not saved")
+		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+		
+end

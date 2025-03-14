@@ -1,0 +1,34 @@
+local game_data = require("main.game-data.lua")
+
+local sounds = {
+	"/music/Mysterious-Puzzle_Looping.ogg",
+	"/music/Happy-Bee.ogg",
+	"/music/Puzzle-Game-3_Looping.ogg",
+	"/music/Super-Friendly.ogg"
+}
+
+function init(self)
+	complete()
+	if (game_data.muted) then
+		sound.pause("#current", true)
+	end
+end
+
+function complete()
+	local new_sound = math.random(1,#sounds)
+	change_sound(sounds[new_sound])
+end
+
+function change_sound(sound_path) 
+	local music,error = sys.load_resource(sound_path)
+	print(error)
+	local path = go.get("#current", "sound")
+	resource.set_sound(path, music)
+	sound.play("#current",{delay = 1} ,complete)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("mute") then
+		sound.pause("#current", message.muted)
+	end
+end

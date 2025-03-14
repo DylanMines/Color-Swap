@@ -1,0 +1,17 @@
+local num_lights = 10
+local width,height = window.get_size()
+function init(self)
+	
+	self.counter = 0
+	local function create_light(self,handle,time_elapsed)
+		self.counter = self.counter + 1
+		if self.counter == num_lights then
+			timer.cancel(handle) -- cancel timer after 100 calls
+		end
+		--print("creating light "..self.counter)
+		local new = factory.create("#factory")
+		go.set_position(vmath.vector3(math.random(0,width),math.random(0,height),-1),new)
+	end
+	timer.delay(0.25, true, create_light)
+end
+

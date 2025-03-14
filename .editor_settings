@@ -1,0 +1,50 @@
+{
+  :workflow {
+    :recent-files [
+      [
+        "/UI/Main/Main.gui"
+        :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/Games/board.tilemap"
+        :scene
+      ]
+      [
+        "/Games/Board.go"
+        :scene
+      ]
+      [
+        "/Games/Source.tilesource"
+        :scene
+      ]
+      [
+        "/background/background.atlas"
+        :scene
+      ]
+      [
+        "/background/background.go"
+        :scene
+      ]
+      [
+        "/main/crystals.atlas"
+        :scene
+      ]
+      [
+        "/main/main.atlas"
+        :scene
+      ]
+      [
+        "/main/stars.atlas"
+        :scene
+      ]
+      [
+        "/main/main.collection"
+        :scene
+      ]
+    ]
+  }
+}

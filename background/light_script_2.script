@@ -1,0 +1,57 @@
+
+--[[
+x and y = upper semi-cirlce
+x = upper start (0 to 180)
+y = upper to (x to 180)
+
++90
+y  |  x
+\ | /
+\|/
++180 ---+--- 0
+
+
+z and w = lower semi-circle
+z = lower start (0 to -180)
+w = lower to (z to -180)
+
+-180 ---+--- 0
+/|\
+/ | \
+w  |  z
+-90
+--]]
+
+function pick_color()
+	return vmath.vector4(math.random(25,155),math.random(25,155),math.random(25,155),190)/260
+end
+
+function init(self)
+	self.width,self.height = window.get_size()
+	self.color = pick_color()
+	self.radius = math.random(250,450)
+	go.set_scale(self.radius/250)
+	go.set("#sprite", "tint", self.color)
+	choose_destination(self)
+end
+
+function choose_destination(self)
+	self.target = vmath.vector3(math.random(1,self.width),math.random(1,self.height),0)
+	local dist = vmath.length(self.target - go.get_position())
+	go.animate(go.get_id(), "position", go.PLAYBACK_ONCE_FORWARD, self.target, go.EASING_INOUTCUBIC, dist/100)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("window_resized") then
+		self.width = message.width
+		self.height = message.height
+	end
+end
+
+function update(self, dt)
+	local dist = vmath.length(self.target - go.get_position())
+	if dist < 1 then
+		choose_destination(self)
+	end
+	
+end

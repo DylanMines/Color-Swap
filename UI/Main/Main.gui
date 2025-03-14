@@ -1,0 +1,638 @@
+script: "/UI/Main/main.gui_script"
+fonts {
+  name: "system_font"
+  font: "/builtins/fonts/debug/always_on_top.font"
+}
+fonts {
+  name: "Roboto"
+  font: "/main/Roboto.font"
+}
+fonts {
+  name: "sobiscuit_large"
+  font: "/Fonts/sobiscuit_large.font"
+}
+fonts {
+  name: "sobiscuit_medium"
+  font: "/Fonts/sobiscuit_medium.font"
+}
+fonts {
+  name: "sobiscuit_small"
+  font: "/Fonts/sobiscuit_small.font"
+}
+textures {
+  name: "main"
+  texture: "/main/main.atlas"
+}
+textures {
+  name: "crystals"
+  texture: "/main/crystals.atlas"
+}
+textures {
+  name: "abilities"
+  texture: "/main/abilities.atlas"
+}
+textures {
+  name: "info"
+  texture: "/UI/Main/Main.atlas"
+}
+textures {
+  name: "Buttons"
+  texture: "/UI/Buttons/Buttons.atlas"
+}
+textures {
+  name: "logo"
+  texture: "/logo/logo.atlas"
+}
+textures {
+  name: "loading"
+  texture: "/UI/Loading/loading.atlas"
+}
+nodes {
+  position {
+    x: 320.0
+  }
+  type: TYPE_BOX
+  texture: "info/UI_dark_top"
+  id: "ui_top"
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_STRETCH
+  layer: "middleground1"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    y: -110.0
+  }
+  size {
+    x: 350.0
+    y: 60.0
+  }
+  type: TYPE_BOX
+  texture: "info/UI_dark_pause"
+  id: "pause"
+  pivot: PIVOT_N
+  parent: "ui_top"
+  layer: "middleground2"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 124.0
+    y: -12.0
+  }
+  size {
+    x: 64.0
+    y: 64.0
+  }
+  type: TYPE_PIE
+  texture: "abilities/switch_power_reverse"
+  id: "switch_power"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_N
+  parent: "ui_top"
+  layer: "middleground1"
+  inherit_alpha: true
+  perimeterVertices: 360
+}
+nodes {
+  position {
+    x: 35.0
+    y: -32.0
+  }
+  scale {
+    x: 1.5
+    y: 1.5
+  }
+  size {
+    x: 80.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "x2"
+  font: "sobiscuit_small"
+  id: "switch_amount"
+  pivot: PIVOT_W
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "switch_power"
+  layer: "middleground2"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -79.0
+    y: -10.0
+  }
+  size {
+    x: 60.0
+    y: 80.0
+  }
+  type: TYPE_BOX
+  texture: "crystals/crystal_click"
+  id: "crystals"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_N
+  parent: "ui_top"
+  layer: "middleground1"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 30.0
+    y: -40.0
+  }
+  scale {
+    x: 1.5
+    y: 1.5
+  }
+  size {
+    x: 90.0
+    y: 25.0
+  }
+  type: TYPE_TEXT
+  text: "0/24"
+  font: "sobiscuit_small"
+  id: "text/crystals"
+  xanchor: XANCHOR_LEFT
+  pivot: PIVOT_W
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "crystals"
+  inherit_alpha: true
+}
+nodes {
+  type: TYPE_TEMPLATE
+  id: "Pause"
+  inherit_alpha: true
+  template: "/UI/Pause_game/Pause.gui"
+  enabled: false
+}
+nodes {
+  type: TYPE_BOX
+  id: "Pause/main"
+  parent: "Pause"
+  layer: "middleground1"
+  alpha: 0.0
+  overridden_fields: 20
+  overridden_fields: 30
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Pause/paused_title"
+  parent: "Pause/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Pause/highscore"
+  parent: "Pause/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Pause/quit"
+  parent: "Pause/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Pause/resume"
+  parent: "Pause/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Pause/options"
+  parent: "Pause/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEMPLATE
+  id: "Start"
+  layer: "middleground1"
+  inherit_alpha: true
+  template: "/UI/Start_menu/Start.gui"
+}
+nodes {
+  type: TYPE_BOX
+  id: "Start/main"
+  parent: "Start"
+  layer: "middleground2"
+  alpha: 0.0
+  overridden_fields: 20
+  overridden_fields: 21
+  overridden_fields: 30
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Start/Store"
+  parent: "Start/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Start/Quit"
+  parent: "Start/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Start/Options"
+  parent: "Start/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Start/New"
+  parent: "Start/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Start/Continue"
+  parent: "Start/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Start/title"
+  parent: "Start/main"
+  layer: "middleground1"
+  overridden_fields: 20
+  overridden_fields: 21
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Start/logo"
+  parent: "Start/title"
+  layer: "middleground1"
+  overridden_fields: 20
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEMPLATE
+  id: "Loading"
+  layer: "foreground"
+  inherit_alpha: true
+  template: "/UI/Loading/Loading.gui"
+  enabled: false
+}
+nodes {
+  type: TYPE_BOX
+  id: "Loading/main"
+  parent: "Loading"
+  overridden_fields: 30
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Loading/logo1"
+  parent: "Loading/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Loading/text"
+  parent: "Loading/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  texture: "loading/loading_back"
+  id: "Loading/loading/back"
+  parent: "Loading/main"
+  overridden_fields: 9
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  texture: "loading/loading"
+  id: "Loading/loading_bar"
+  parent: "Loading/loading/back"
+  overridden_fields: 9
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEMPLATE
+  id: "Store"
+  layer: "foreground"
+  inherit_alpha: true
+  template: "/UI/Store_menu/Store.gui"
+  enabled: false
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/main"
+  parent: "Store"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/crystal6"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/switch_shop"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Store/switch_amount"
+  parent: "Store/switch_shop"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/crystal2"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Store/crystal_amount"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/crystal1"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/crystal4"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/crystal5"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/crystal3"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Store/info"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Store/back"
+  parent: "Store/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEMPLATE
+  id: "Options"
+  layer: "foreground"
+  inherit_alpha: true
+  template: "/UI/Options_menu/Options.gui"
+  enabled: false
+}
+nodes {
+  type: TYPE_BOX
+  id: "Options/main"
+  parent: "Options"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Options/crystal_amount"
+  parent: "Options/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "Options/info"
+  parent: "Options/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "Options/back"
+  parent: "Options/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEMPLATE
+  id: "New"
+  inherit_alpha: true
+  template: "/UI/New_game/New.gui"
+  enabled: false
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/main"
+  parent: "New"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "New/menu_title"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/cyan/back"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/cyan/tex"
+  parent: "New/cyan/back"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/purple/back"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/purple/tex"
+  parent: "New/purple/back"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/yellow/back"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/yellow/tex"
+  parent: "New/yellow/back"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/green/back"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/green/tex"
+  parent: "New/green/back"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/blue/back"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/blue/tex"
+  parent: "New/blue/back"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/red/back"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/yellow/tex1"
+  parent: "New/red/back"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/start"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "New/Pick_title"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "New/Size_title"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/vert_size"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/box1"
+  parent: "New/vert_size"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "New/v_size"
+  parent: "New/box1"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/horz_size"
+  parent: "New/main"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_BOX
+  id: "New/box2"
+  parent: "New/horz_size"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  id: "New/h_size"
+  parent: "New/box2"
+  template_node_child: true
+}
+layers {
+  name: "background"
+}
+layers {
+  name: "middleground1"
+}
+layers {
+  name: "middleground2"
+}
+layers {
+  name: "foreground"
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
