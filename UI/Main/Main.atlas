@@ -1,17 +1,10 @@
 images {
   image: "/UI/Main/UI_dark_top.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
   image: "/UI/Main/UI_light_top.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/UI/UI_dark_pause.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  image: "/UI/assets/icons/UI_dark_pause.png"
 }
-margin: 0
 extrude_borders: 2
-inner_padding: 0
-max_page_width: 0
-max_page_height: 0

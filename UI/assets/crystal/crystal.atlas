@@ -1,0 +1,68 @@
+animations {
+  id: "crystal_click"
+  images {
+    image: "/UI/assets/crystal/images/00.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/01.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/02.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/03.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/04.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/05.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/06.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/07.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/08.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/09.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/10.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/11.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/12.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/13.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/14.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/15.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/16.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/17.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/18.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/19.png"
+  }
+  images {
+    image: "/UI/assets/crystal/images/20.png"
+  }
+  fps: 44
+}
+extrude_borders: 2

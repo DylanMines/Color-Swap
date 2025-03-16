@@ -4,7 +4,7 @@ fonts {
 }
 textures {
   name: "stars"
-  texture: "/main/stars.atlas"
+  texture: "/UI/assets/stars/stars.atlas"
 }
 textures {
   name: "Buttons"
@@ -268,5 +268,5 @@ material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
 particlefxs {
   name: "Star"
-  particlefx: "/UI/Star.particlefx"
+  particlefx: "/UI/assets/Star.particlefx"
 }

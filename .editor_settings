@@ -26,18 +26,6 @@
         :scene
       ]
       [
-        "/main/crystals.atlas"
-        :scene
-      ]
-      [
-        "/main/main.atlas"
-        :scene
-      ]
-      [
-        "/main/stars.atlas"
-        :scene
-      ]
-      [
         "/main/main.collection"
         :scene
       ]
@@ -70,11 +58,39 @@
         :scene
       ]
       [
+        "/UI/UIbackwithbar.atlas"
+        :scene
+      ]
+      [
+        "/main/main.atlas"
+        :scene
+      ]
+      [
+        "/main/stars.atlas"
+        :scene
+      ]
+      [
         "/UI/Main/Main.gui"
         :scene
       ]
       [
-        "/UI/UIbackwithbar.atlas"
+        "/main/abilities.atlas"
+        :scene
+      ]
+      [
+        "/UI/assets/ding.sound"
+        :cljfx-form-view
+      ]
+      [
+        "/UI/assets/buttons/Buttons.atlas"
+        :scene
+      ]
+      [
+        "/assets/test.atlas"
+        :scene
+      ]
+      [
+        "/main/crystals.atlas"
         :scene
       ]
     ]

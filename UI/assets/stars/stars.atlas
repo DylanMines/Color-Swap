@@ -1,0 +1,250 @@
+images {
+  image: "/UI/assets/stars/stars.png"
+}
+animations {
+  id: "1_star"
+  images {
+    image: "/UI/assets/stars/1 star/00.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/01.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/02.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/03.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/04.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/05.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/06.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/07.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/08.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/09.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/10.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/11.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/12.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/13.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/14.png"
+  }
+  images {
+    image: "/UI/assets/stars/1 star/15.png"
+  }
+  fps: 35
+}
+animations {
+  id: "2_star"
+  images {
+    image: "/UI/assets/stars/2 star/00.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/01.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/02.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/03.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/04.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/05.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/06.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/07.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/08.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/09.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/10.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/11.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/12.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/13.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/14.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/15.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/16.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/17.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/18.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/19.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/20.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/21.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/22.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/23.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/24.png"
+  }
+  images {
+    image: "/UI/assets/stars/2 star/25.png"
+  }
+  fps: 35
+}
+animations {
+  id: "3_star"
+  images {
+    image: "/UI/assets/stars/3 star/00.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/01.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/02.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/03.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/04.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/05.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/06.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/07.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/08.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/09.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/10.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/11.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/12.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/13.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/14.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/15.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/16.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/17.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/18.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/19.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/20.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/21.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/22.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/23.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/24.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/25.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/26.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/27.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/28.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/29.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/30.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/31.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/32.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/33.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/34.png"
+  }
+  images {
+    image: "/UI/assets/stars/3 star/35.png"
+  }
+  fps: 35
+}
+extrude_borders: 2

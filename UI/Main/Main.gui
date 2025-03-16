@@ -25,7 +25,7 @@ textures {
 }
 textures {
   name: "crystals"
-  texture: "/main/crystals.atlas"
+  texture: "/UI/assets/crystal/crystal.atlas"
 }
 textures {
   name: "abilities"
@@ -45,7 +45,7 @@ textures {
 }
 textures {
   name: "loading"
-  texture: "/UI/Loading/loading.atlas"
+  texture: "/UI/loading/loading.atlas"
 }
 nodes {
   position {
@@ -321,7 +321,7 @@ nodes {
   id: "Loading"
   layer: "foreground"
   inherit_alpha: true
-  template: "/UI/Loading/Loading.gui"
+  template: "/UI/loading/Loading.gui"
   enabled: false
 }
 nodes {

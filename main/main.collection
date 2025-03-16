@@ -45,7 +45,7 @@ embedded_instances {
   "}\n"
   "components {\n"
   "  id: \"ding\"\n"
-  "  component: \"/UI/ding.sound\"\n"
+  "  component: \"/SFX/ding.sound\"\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"current\"\n"

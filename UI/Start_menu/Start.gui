@@ -29,7 +29,7 @@ textures {
 }
 textures {
   name: "crystals"
-  texture: "/main/crystals.atlas"
+  texture: "/UI/assets/crystal/crystal.atlas"
 }
 textures {
   name: "Buttons"
