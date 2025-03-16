@@ -37,7 +37,7 @@ textures {
 }
 textures {
   name: "Buttons"
-  texture: "/UI/Buttons/Buttons.atlas"
+  texture: "/UI/assets/buttons/Buttons.atlas"
 }
 textures {
   name: "logo"
@@ -191,10 +191,6 @@ nodes {
   type: TYPE_BOX
   id: "Pause/main"
   parent: "Pause"
-  layer: "middleground1"
-  alpha: 0.0
-  overridden_fields: 20
-  overridden_fields: 30
   template_node_child: true
 }
 nodes {
@@ -253,11 +249,9 @@ nodes {
   type: TYPE_BOX
   id: "Start/main"
   parent: "Start"
-  layer: "middleground2"
-  alpha: 0.0
+  layer: "background"
   overridden_fields: 20
   overridden_fields: 21
-  overridden_fields: 30
   template_node_child: true
 }
 nodes {

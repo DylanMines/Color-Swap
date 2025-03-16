@@ -1,0 +1,10 @@
+images {
+  image: "/UI/assets/icons/size_icon.png"
+}
+images {
+  image: "/UI/assets/icons/Icon_button_2.png"
+}
+images {
+  image: "/UI/assets/icons/Icon_basic.png"
+}
+extrude_borders: 2

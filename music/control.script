@@ -1,4 +1,4 @@
-local game_data = require("main.game-data.lua")
+local game_data = require("main.game-data")
 
 local sounds = {
 	"/music/Mysterious-Puzzle_Looping.ogg",

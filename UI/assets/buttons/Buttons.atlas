@@ -1,0 +1,202 @@
+images {
+  image: "/UI/assets/buttons/Quit_button/00_Quit.png"
+}
+images {
+  image: "/UI/assets/buttons/Resume_button/00_Resume.png"
+}
+images {
+  image: "/UI/assets/buttons/New_button/00_New.png"
+}
+images {
+  image: "/UI/assets/buttons/Continue_button/00_Continue.png"
+}
+images {
+  image: "/UI/assets/buttons/Options_button/00_Options.png"
+}
+images {
+  image: "/UI/assets/buttons/Store_button/00_Store.png"
+}
+images {
+  image: "/UI/assets/buttons/Back_chip/Back_hover.png"
+}
+images {
+  image: "/UI/assets/buttons/Back_chip/Back_normal.png"
+}
+images {
+  image: "/UI/assets/buttons/Icon_button/Icon_button_1.png"
+}
+animations {
+  id: "Quit_press"
+  images {
+    image: "/UI/assets/buttons/Quit_button/00_Quit.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Quit_button/01.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Quit_button/02.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Quit_button/03.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Quit_button/04.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Quit_button/05.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Quit_button/06.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Quit_button/07.png"
+  }
+  playback: PLAYBACK_ONCE_PINGPONG
+  fps: 80
+}
+animations {
+  id: "Resume_press"
+  images {
+    image: "/UI/assets/buttons/Resume_button/00_Resume.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Resume_button/01.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Resume_button/02.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Resume_button/03.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Resume_button/04.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Resume_button/05.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Resume_button/06.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Resume_button/07.png"
+  }
+  playback: PLAYBACK_ONCE_PINGPONG
+  fps: 80
+}
+animations {
+  id: "New_press"
+  images {
+    image: "/UI/assets/buttons/New_button/00_New.png"
+  }
+  images {
+    image: "/UI/assets/buttons/New_button/01.png"
+  }
+  images {
+    image: "/UI/assets/buttons/New_button/02.png"
+  }
+  images {
+    image: "/UI/assets/buttons/New_button/03.png"
+  }
+  images {
+    image: "/UI/assets/buttons/New_button/04.png"
+  }
+  images {
+    image: "/UI/assets/buttons/New_button/05.png"
+  }
+  images {
+    image: "/UI/assets/buttons/New_button/06.png"
+  }
+  images {
+    image: "/UI/assets/buttons/New_button/07.png"
+  }
+  playback: PLAYBACK_ONCE_PINGPONG
+  fps: 80
+}
+animations {
+  id: "Continue_press"
+  images {
+    image: "/UI/assets/buttons/Continue_button/00_Continue.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Continue_button/01.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Continue_button/02.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Continue_button/03.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Continue_button/04.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Continue_button/05.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Continue_button/06.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Continue_button/07.png"
+  }
+  playback: PLAYBACK_ONCE_PINGPONG
+  fps: 80
+}
+animations {
+  id: "Options_press"
+  images {
+    image: "/UI/assets/buttons/Options_button/00_Options.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Options_button/01.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Options_button/02.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Options_button/03.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Options_button/04.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Options_button/05.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Options_button/06.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Options_button/07.png"
+  }
+  playback: PLAYBACK_ONCE_PINGPONG
+  fps: 80
+}
+animations {
+  id: "Store_press"
+  images {
+    image: "/UI/assets/buttons/Store_button/00_Store.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Store_button/01.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Store_button/02.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Store_button/03.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Store_button/04.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Store_button/05.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Store_button/06.png"
+  }
+  images {
+    image: "/UI/assets/buttons/Store_button/07.png"
+  }
+  playback: PLAYBACK_ONCE_PINGPONG
+  fps: 80
+}
+extrude_borders: 2

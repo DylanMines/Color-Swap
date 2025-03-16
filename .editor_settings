@@ -2,10 +2,6 @@
   :workflow {
     :recent-files [
       [
-        "/UI/Main/Main.gui"
-        :scene
-      ]
-      [
         "/game.project"
         :cljfx-form-view
       ]
@@ -46,10 +42,6 @@
         :scene
       ]
       [
-        "/UI/End_game/End_game.gui"
-        :scene
-      ]
-      [
         "/UI/Icons/icons.atlas"
         :scene
       ]
@@ -59,6 +51,30 @@
       ]
       [
         "/UI/Loading/Loading.gui"
+        :scene
+      ]
+      [
+        "/UI/End_game/End_game.gui"
+        :scene
+      ]
+      [
+        "/UI/Pause_game/Pause.gui"
+        :scene
+      ]
+      [
+        "/UI/assets/icons/icons.atlas"
+        :scene
+      ]
+      [
+        "/UI/Star.particlefx"
+        :scene
+      ]
+      [
+        "/UI/Main/Main.gui"
+        :scene
+      ]
+      [
+        "/UI/UIbackwithbar.atlas"
         :scene
       ]
     ]
