@@ -45,6 +45,22 @@
         "/main/main.collection"
         :scene
       ]
+      [
+        "/UI/End_game/End_game.gui"
+        :scene
+      ]
+      [
+        "/UI/Icons/icons.atlas"
+        :scene
+      ]
+      [
+        "/UI/Loading/loading.atlas"
+        :scene
+      ]
+      [
+        "/UI/Loading/Loading.gui"
+        :scene
+      ]
     ]
   }
 }
