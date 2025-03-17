@@ -1,0 +1,330 @@
+--[[
+SCORE BREAKDOWN
+(sizex * 1.2) * (sizey * 1.2) * pieces - 25 = difficulty
+
+
+score: (difficulty/time) * 1000
+
+1 star: score > 700
+2 stars: score > 1000
+3 stars score > 2000
+
+powerup: -150 score
+]]
+
+local data = require("main.game-data")
+local game_save = require("Games.game_save")
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.pos = go.get_position()
+	self.size = vmath.vector4()
+	self.board_size = vmath.vector3(0,0,0)
+	self.size.x,self.size.y,self.size.z,self.size.w = tilemap.get_bounds("#board") -- x,y,w,h
+	self.complete = false
+	--[[go.set("/template#board", "tint", vmath.vector4(.9,.7,.3,1))
+	go.set("#board", "tint", vmath.vector4(.7,1,.65,1))]]
+	--generate_board(self,10,7,5) -- max size
+	self.powers = {switch = false}
+	msg.post("@render:", "use_fixed_fit_projection", { near = -1, far = 1 })
+	self.last = vmath.vector3()
+	self.score = 0
+	--go.set("/template#board", "tint", vmath.vector4(0.85))
+	--particlefx.play("/confetti#confetti")
+end
+
+local function sum(t)
+	local sum = 0
+	for k,v in pairs(t) do
+		sum = sum + v
+	end
+	return sum
+end
+
+local pieces_number = {
+	["red"] = 1,
+	["blue"] = 2,
+	["green"] = 3,
+	["purple"] = 4,
+	["yellow"] = 5,
+	["cyan"] = 12
+}
+
+local piece_map = { --background colors
+	[1] = 6,
+	[2] = 13,
+	[3] = 20,
+	[4] = 7,
+	[5] = 14,
+	[12] = 21,
+	[11] = 27
+}
+
+-- change layer "colors" to match the template
+
+local function create_pieces(sizex,sizey,pieces)
+	local num_pieces = {} -- table containing the pieces and their locations I.E. {1,2,3,1,5,2}
+	local allowed = {}
+	for i,v in pairs(pieces) do
+		if v == true then
+			table.insert(allowed, pieces_number[i])
+		end
+	end
+	for y = 1, sizey do
+		for x = 1, sizex do
+			--print(x,y,#allowed)
+			table.insert(num_pieces,allowed[math.random(1,#allowed)])
+		end
+	end
+	num_pieces[math.random(1,sizex*sizey)] = 11
+	--pprint(num_pieces)
+	return num_pieces,#allowed
+end
+
+local function shuffle_pieces(pieces)
+	local total = #pieces
+	local new_pieces = {}
+	for i = 1,total do
+		local chosen = math.random(1,#pieces)
+		--repeat chosen = math.random(1,total) until new_pieces[chosen] == nil
+		new_pieces[i] = pieces[chosen]
+		table.remove(pieces,chosen)
+	end
+	--pprint(new_pieces)
+	return new_pieces
+end
+
+local function generate_board(self,sizex,sizey,pieces,save)
+	clear_board(self)
+	for r = 2,sizex-1 do
+		tilemap.set_tile("#board","back", r, 1, 23)
+		tilemap.set_tile("#board","back", r, sizey, 9)
+		for c = 2, sizey-1 do
+			tilemap.set_tile("#board","back", r, c, 16)
+			if r == 1 or sizex then
+				tilemap.set_tile("#board","back", 1, c, 15)
+				tilemap.set_tile("#board","back", sizex, c, 17)
+			end
+		end
+	end
+	tilemap.set_tile("#board","back",1,1,22)
+	tilemap.set_tile("#board","back", sizex, sizey, 10)
+	tilemap.set_tile("#board","back", sizex,1,24)
+	tilemap.set_tile("#board","back",1,sizey,8)
+	--setting size and positioning
+	self.board_size.x = sizex
+	self.board_size.y = sizey
+	local width,height = window.get_size()
+	--print(width,height)
+	--go.set_position(vmath.vector3(640-sizex*64,1036-sizey*64,0),"/template#board")
+
+	go.set_position(vmath.vector3(width/2-sizex*32*go.get_scale().x,height/2-sizey*32*go.get_scale().y,0))
+	self.pos = go.get_position()
+	--go.set_position(vmath.vector3(320, 50, 0),"/confetti#confetti")
+
+	--making the random number generator work ???? (the internet never lies)
+	math.randomseed(os.time())
+	for i = 1,15 do
+		math.random(1,10)
+	end
+
+	--creating the pieces
+	local total = 0
+	--print("loading save state: "..tostring(save))
+	if save == false then
+		local new_pieces,av = create_pieces(sizex,sizey,pieces)
+		total = av
+		place_background_pieces(self,new_pieces,true)
+		place_pieces(self,shuffle_pieces(new_pieces))
+		msg.post("/GUI#Main_UI", "begin_timer",{time = 0})
+	else
+		total = game_save.size.z
+		print(game_save.size)
+		place_background_pieces(self,game_save.template,false)
+		place_pieces(self,game_save.board)
+		msg.post("/GUI#Main_UI", "begin_timer",{time = game_save.time})
+	end
+	--print(total)
+	self.complete = false
+	self.board_size.z = total
+	self.score = 0
+	save_game(self)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("create_board") then
+		generate_board(self, message.sizex, message.sizey, message.pieces,false)
+	elseif message_id == hash("clear") then
+		save_game(self)
+		clear_board(self)
+	elseif message_id == hash("switch_power") then 
+		self.powers.switch = message.value
+		if message.value == false then
+			self.last = vmath.vector3()
+		end
+	elseif message_id == hash("end_time") then --calculate score
+		--print(self.board_size.x)
+		local difficulty = ((self.board_size.x * 1.4) * (self.board_size.y * 1.4) * self.board_size.z) - 20
+		local score = math.floor((difficulty/message.time) * 1005)
+		--print(difficulty,message.time)
+		if score < 10 then
+			score = 10
+		end
+		local high = data.highscore
+		if high < score then data.highscore = score end
+		data.exp = math.floor(data.exp + score/2.8)
+		msg.post(sender, "game_end")
+		data.saved = false
+		msg.post("/game_ui#menus", "game_end",{score = score})
+	elseif message_id == hash("screen_to_world_callback") then
+		tap(message.x, message.y,self)
+	elseif message_id == hash("continue") then
+		--print(game_save.x,game_save.y)
+		generate_board(self, game_save.size.x, game_save.size.y, nil,true)
+	elseif message_id == hash("timer_callback") then
+		save_game(self, message.time)
+	end
+end
+
+local function copy (t) -- shallow-copy a table
+	if type(t) ~= "table" then return t end
+	local meta = getmetatable(t)
+	local target = {}
+	for k, v in pairs(t) do target[k] = v end
+	setmetatable(target, meta)
+	return target
+end
+
+local function get_key_for_value( t, value )
+	for k,v in pairs(t) do
+		if v==value then return k end
+	end
+	return nil
+end
+
+function place_pieces(self,org_pieces)
+	local pieces = copy(org_pieces)
+	for y = 1,self.board_size.y do
+		for x = 1,self.board_size.x do
+			tilemap.set_tile("#board", "pieces", x, y, pieces[1])
+			table.remove(pieces,1)
+		end
+	end
+end
+function place_background_pieces(self,org_pieces,use_map)
+	local pieces = copy(org_pieces)
+	--pprint(pieces)
+	for y = 1,self.board_size.y do
+		for x = 1,self.board_size.x do
+			local selected = pieces[1]
+			if use_map then selected = piece_map[pieces[1]] end
+			tilemap.set_tile("#board", "colors", x, y, selected)
+			table.remove(pieces,1)
+		end
+	end
+end
+
+function checkComplete(self)
+	for r = 1,self.board_size.x do
+		for c = 1,self.board_size.y do
+			if piece_map[tilemap.get_tile("#board", "pieces", r, c)] ~= tilemap.get_tile("#board", "colors", r, c) then
+				return false
+			end
+		end
+	end
+	return true
+end
+
+local checks = {{1,0},{-1,0},{0,1},{0,-1}}
+
+function swap(self,x1,y1,x2,y2)
+	x2 = x2 or nil
+	y2 = y2 or nil
+	local function check_ajacent(cx,cy)
+		if cx > self.size.z or cy > self.size.w or cx < 1 or cy < 1  then 
+			return false
+		end
+		if tilemap.get_tile("#board", "pieces", cx, cy) == 11 then
+			return true
+		end
+	end
+	if x2 == nil or y2 == nil then
+		for i,v in ipairs(checks) do
+			x2 = x1 + v[1]
+			y2 = y1+v[2]
+			if check_ajacent(x2, y2) == true then
+				local old_tile = tilemap.get_tile("#board", "pieces", x1, y1)
+				tilemap.set_tile("#board", "pieces",x1, y1, 11)
+				tilemap.set_tile("#board", "pieces",x2, y2, old_tile)
+			end
+		end
+	else
+		local tile_1 = tilemap.get_tile("#board", "pieces", x1, y1)
+		local tile_2 = tilemap.get_tile("#board", "pieces", x2, y2)
+		tilemap.set_tile("#board", "pieces",x1, y1, tile_2)
+		tilemap.set_tile("#board", "pieces",x2, y2, tile_1)
+		self.score = self.score - 150 --score penalty for using powerups
+	end
+	return checkComplete(self)
+end
+
+function clear_board(self)
+	for x = self.size.x+1,self.size.z/2 do
+		for y = self.size.y+1,self.size.w-1 do
+			tilemap.set_tile("#board","back", x, y, 0)
+			tilemap.set_tile("#board","pieces", x, y, 0)
+			tilemap.set_tile("#board","colors", x, y, 0)
+		end
+	end
+end
+
+function tap(x,y,self)
+	--print(go.get_scale())
+	local pos = vmath.vector3(x-self.pos.x,y-self.pos.y,0)/(64*go.get_scale().x)
+	local tile = vmath.vector3(math.ceil(pos.x), math.ceil(pos.y), 1)
+	
+	if tile.x > self.size.z/2 or tile.y > self.size.w-1 or tile.y < 0 then 
+		return
+	end
+	if tilemap.get_tile("#board", "back", tile.x, tile.y) == 0 then
+		return
+	end
+	--tile is the space selected. if no x2,y2 are passed, it will check for empty spaces. if an x2,y2 IS passed it will simply switch the two
+	local win_state = false
+	if self.powers.switch == true and self.last.z == 0 then
+		self.last = tile
+	elseif self.powers.switch == true then
+		win_state = swap(self,tile.x, tile.y,self.last.x,self.last.y)
+		data.switch_power = data.switch_power - 1
+		msg.post("/game_ui#game", "switch_done")
+	else
+		win_state = swap(self,tile.x, tile.y)
+	end
+	if win_state == true then 
+		msg.post("/GUI#Main_UI", "stop_timer")
+		msg.post("/sfx#SoundEffectController","play_sound_effect",{soundID = "clapping"})
+		particlefx.play("/confetti#confetti")
+		--msg.post("/game_ui#game", "game_end") this comes later
+		self.complete = true
+		--print(self.complete)
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("tap") and action.pressed and not self.complete then
+		msg.post("@render:", "screen_to_world",{x = action.x,y = action.y,z = 0})
+	end
+end
+
+function save_game(self,time)
+	data.saved = true
+	game_save.time = time or 0
+	game_save.size = self.board_size
+	game_save.template = {}
+	game_save.board = {}
+	for y = 1,game_save.size.y do
+		for x = 1,game_save.size.x do
+			table.insert(game_save.template, tilemap.get_tile("#board", "colors", x, y))
+			table.insert(game_save.board, tilemap.get_tile("#board", "pieces", x, y))
+		end
+	end
+end
