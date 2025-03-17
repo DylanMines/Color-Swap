@@ -2,65 +2,43 @@ tile_set: "/Games/Source.tilesource"
 layers {
   id: "colors"
   z: -0.75
-  is_visible: 1
   cell {
     x: -31
     y: -1
     tile: 25
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
   }
   cell {
     x: 29
     y: 29
     tile: 25
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
   }
 }
 layers {
   id: "back"
   z: -0.5
-  is_visible: 1
   cell {
     x: -31
     y: -1
     tile: 25
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
   }
   cell {
     x: 29
     y: 29
     tile: 25
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
   }
 }
 layers {
   id: "pieces"
   z: 1.0
-  is_visible: 1
   cell {
     x: -31
     y: -1
     tile: 25
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
   }
   cell {
     x: 29
     y: 29
     tile: 25
-    h_flip: 0
-    v_flip: 0
-    rotate90: 0
   }
 }
 material: "/builtins/materials/tile_map.material"
-blend_mode: BLEND_MODE_ALPHA
