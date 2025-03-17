@@ -1,168 +1,168 @@
 images {
-  image: "/Pieces/blue circle/0_Blue.png"
+  image: "/assets/piece_assets/blue_circle/0_Blue.png"
 }
 images {
-  image: "/Pieces/cyan trapezoid/0_Cyan.png"
+  image: "/assets/piece_assets/cyan_trapezoid/0_Cyan.png"
 }
 images {
-  image: "/Pieces/green diamond/0_Green.png"
+  image: "/assets/piece_assets/green_diamond/0_Green.png"
 }
 images {
-  image: "/Pieces/purple pentagon/0_Purple.png"
+  image: "/assets/piece_assets/purple_pentagon/0_Purple.png"
 }
 images {
-  image: "/Pieces/red_cube/0_Red.png"
+  image: "/assets/piece_assets/red_cube/0_Red.png"
 }
 images {
-  image: "/Pieces/yellow star/0_Yellow.png"
+  image: "/assets/piece_assets/yellow_star/0_Yellow.png"
 }
 animations {
   id: "Red"
   images {
-    image: "/Pieces/red_cube/0_Red.png"
+    image: "/assets/piece_assets/red_cube/0_Red.png"
   }
   images {
-    image: "/Pieces/red_cube/1.png"
+    image: "/assets/piece_assets/red_cube/1.png"
   }
   images {
-    image: "/Pieces/red_cube/2.png"
+    image: "/assets/piece_assets/red_cube/2.png"
   }
   images {
-    image: "/Pieces/red_cube/3.png"
+    image: "/assets/piece_assets/red_cube/3.png"
   }
   images {
-    image: "/Pieces/red_cube/4.png"
+    image: "/assets/piece_assets/red_cube/4.png"
   }
   images {
-    image: "/Pieces/red_cube/5.png"
+    image: "/assets/piece_assets/red_cube/5.png"
   }
   images {
-    image: "/Pieces/red_cube/6.png"
+    image: "/assets/piece_assets/red_cube/6.png"
   }
   fps: 20
 }
 animations {
   id: "Blue"
   images {
-    image: "/Pieces/blue circle/0_Blue.png"
+    image: "/assets/piece_assets/blue_circle/0_Blue.png"
   }
   images {
-    image: "/Pieces/blue circle/1.png"
+    image: "/assets/piece_assets/blue_circle/1.png"
   }
   images {
-    image: "/Pieces/blue circle/2.png"
+    image: "/assets/piece_assets/blue_circle/2.png"
   }
   images {
-    image: "/Pieces/blue circle/3.png"
+    image: "/assets/piece_assets/blue_circle/3.png"
   }
   images {
-    image: "/Pieces/blue circle/4.png"
+    image: "/assets/piece_assets/blue_circle/4.png"
   }
   images {
-    image: "/Pieces/blue circle/5.png"
+    image: "/assets/piece_assets/blue_circle/5.png"
   }
   images {
-    image: "/Pieces/blue circle/6.png"
+    image: "/assets/piece_assets/blue_circle/6.png"
   }
   fps: 20
 }
 animations {
   id: "Green"
   images {
-    image: "/Pieces/green diamond/0_Green.png"
+    image: "/assets/piece_assets/green_diamond/0_Green.png"
   }
   images {
-    image: "/Pieces/green diamond/1.png"
+    image: "/assets/piece_assets/green_diamond/1.png"
   }
   images {
-    image: "/Pieces/green diamond/2.png"
+    image: "/assets/piece_assets/green_diamond/2.png"
   }
   images {
-    image: "/Pieces/green diamond/3.png"
+    image: "/assets/piece_assets/green_diamond/3.png"
   }
   images {
-    image: "/Pieces/green diamond/4.png"
+    image: "/assets/piece_assets/green_diamond/4.png"
   }
   images {
-    image: "/Pieces/green diamond/5.png"
+    image: "/assets/piece_assets/green_diamond/5.png"
   }
   images {
-    image: "/Pieces/green diamond/6.png"
+    image: "/assets/piece_assets/green_diamond/6.png"
   }
   fps: 20
 }
 animations {
   id: "Cyan"
   images {
-    image: "/Pieces/cyan trapezoid/0_Cyan.png"
+    image: "/assets/piece_assets/cyan_trapezoid/0_Cyan.png"
   }
   images {
-    image: "/Pieces/cyan trapezoid/1.png"
+    image: "/assets/piece_assets/cyan_trapezoid/1.png"
   }
   images {
-    image: "/Pieces/cyan trapezoid/2.png"
+    image: "/assets/piece_assets/cyan_trapezoid/2.png"
   }
   images {
-    image: "/Pieces/cyan trapezoid/3.png"
+    image: "/assets/piece_assets/cyan_trapezoid/3.png"
   }
   images {
-    image: "/Pieces/cyan trapezoid/4.png"
+    image: "/assets/piece_assets/cyan_trapezoid/4.png"
   }
   images {
-    image: "/Pieces/cyan trapezoid/5.png"
+    image: "/assets/piece_assets/cyan_trapezoid/5.png"
   }
   images {
-    image: "/Pieces/cyan trapezoid/6.png"
+    image: "/assets/piece_assets/cyan_trapezoid/6.png"
   }
   fps: 20
 }
 animations {
   id: "Purple"
   images {
-    image: "/Pieces/purple pentagon/0_Purple.png"
+    image: "/assets/piece_assets/purple_pentagon/0_Purple.png"
   }
   images {
-    image: "/Pieces/purple pentagon/1.png"
+    image: "/assets/piece_assets/purple_pentagon/1.png"
   }
   images {
-    image: "/Pieces/purple pentagon/2.png"
+    image: "/assets/piece_assets/purple_pentagon/2.png"
   }
   images {
-    image: "/Pieces/purple pentagon/3.png"
+    image: "/assets/piece_assets/purple_pentagon/3.png"
   }
   images {
-    image: "/Pieces/purple pentagon/4.png"
+    image: "/assets/piece_assets/purple_pentagon/4.png"
   }
   images {
-    image: "/Pieces/purple pentagon/5.png"
+    image: "/assets/piece_assets/purple_pentagon/5.png"
   }
   images {
-    image: "/Pieces/purple pentagon/6.png"
+    image: "/assets/piece_assets/purple_pentagon/6.png"
   }
   fps: 20
 }
 animations {
   id: "Yellow"
   images {
-    image: "/Pieces/yellow star/0_Yellow.png"
+    image: "/assets/piece_assets/yellow_star/0_Yellow.png"
   }
   images {
-    image: "/Pieces/yellow star/1.png"
+    image: "/assets/piece_assets/yellow_star/1.png"
   }
   images {
-    image: "/Pieces/yellow star/2.png"
+    image: "/assets/piece_assets/yellow_star/2.png"
   }
   images {
-    image: "/Pieces/yellow star/3.png"
+    image: "/assets/piece_assets/yellow_star/3.png"
   }
   images {
-    image: "/Pieces/yellow star/4.png"
+    image: "/assets/piece_assets/yellow_star/4.png"
   }
   images {
-    image: "/Pieces/yellow star/5.png"
+    image: "/assets/piece_assets/yellow_star/5.png"
   }
   images {
-    image: "/Pieces/yellow star/6.png"
+    image: "/assets/piece_assets/yellow_star/6.png"
   }
   fps: 20
 }

@@ -66,10 +66,6 @@
         :scene
       ]
       [
-        "/main/abilities.atlas"
-        :scene
-      ]
-      [
         "/UI/assets/ding.sound"
         :cljfx-form-view
       ]
@@ -86,15 +82,27 @@
         :scene
       ]
       [
-        "/main/main.atlas"
-        :scene
-      ]
-      [
         "/game.project"
         :cljfx-form-view
       ]
       [
         "/assets/piece_assets/pieces.atlas"
+        :scene
+      ]
+      [
+        "/render/mobile.display_profiles"
+        :cljfx-form-view
+      ]
+      [
+        "/main/main.atlas"
+        :scene
+      ]
+      [
+        "/main/abilities.atlas"
+        :scene
+      ]
+      [
+        "/main/confetti.particlefx"
         :scene
       ]
     ]

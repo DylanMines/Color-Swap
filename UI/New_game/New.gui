@@ -16,7 +16,7 @@ textures {
 }
 textures {
   name: "pieces"
-  texture: "/Pieces/pieces.atlas"
+  texture: "/assets/piece_assets/pieces.atlas"
 }
 textures {
   name: "Main"

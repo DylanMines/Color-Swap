@@ -1,4 +1,4 @@
-script: "/Render/main.render_script"
+script: "/render/main.render_script"
 render_resources {
   name: "shadow_map"
   path: "/lights/render/shadow_map.material"
