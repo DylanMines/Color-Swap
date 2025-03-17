@@ -1,6 +1,6 @@
 fonts {
   name: "Roboto"
-  font: "/main/Roboto.font"
+  font: "/fonts/Roboto.font"
 }
 textures {
   name: "stars"

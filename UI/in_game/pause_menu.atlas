@@ -1,0 +1,10 @@
+images {
+  image: "/UI/assets/UI_backgrounds/UI_dark_top.png"
+}
+images {
+  image: "/UI/assets/UI_backgrounds/UI_light_top.png"
+}
+images {
+  image: "/UI/assets/icons/UI_dark_pause.png"
+}
+extrude_borders: 2

@@ -2,6 +2,10 @@ emitters {
   mode: PLAY_MODE_ONCE
   duration: 0.2
   space: EMISSION_SPACE_EMITTER
+  rotation {
+    x: 0.031535003
+    w: 0.99950266
+  }
   tile_source: "/builtins/graphics/particle_blob.tilesource"
   animation: "anim"
   material: "/builtins/materials/particlefx.material"
@@ -17,7 +21,7 @@ emitters {
   properties {
     key: EMITTER_KEY_SIZE_X
     points {
-      y: 8.0
+      y: 4.0
     }
   }
   properties {
@@ -29,14 +33,14 @@ emitters {
   properties {
     key: EMITTER_KEY_PARTICLE_LIFE_TIME
     points {
-      y: 1.2
+      y: 0.6
     }
-    spread: 0.3
+    spread: 0.2
   }
   properties {
     key: EMITTER_KEY_PARTICLE_SPEED
     points {
-      y: 50.0
+      y: 60.0
     }
     spread: 10.0
   }
@@ -131,7 +135,7 @@ emitters {
     properties {
       key: MODIFIER_KEY_MAGNITUDE
       points {
-        y: 50.0
+        y: -10.0
       }
       spread: 100.0
     }

@@ -1,4 +1,4 @@
-tile_set: "/Games/Source.tilesource"
+tile_set: "/main/game/Source.tilesource"
 layers {
   id: "colors"
   z: -0.75

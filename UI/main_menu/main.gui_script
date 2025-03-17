@@ -5,16 +5,17 @@ local last_exp = 0
 local backHue = 0
 
 function init(self)
+	msg.post("/gui#in_game_ui", "disable")
 	self.load_bar = UI_Mods.Submenu.get_submenu_node("Loading","loading_bar")
 	msg.post(".", "acquire_input_focus")
 	self.running = false
-	self.backgroundRunning = true
+	--self.backgroundRunning = true --doesnt do anything
 	--changeBackgroundColor(self)
 	self.special_buttons = {switch = false}
 	--gui.show_keyboard(gui.KEYBOARD_TYPE_NUMBER_PAD, false)
 	
 	--gui.play_flipbook(gui.get_node("stars"), "3_star")
-	gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
+--	gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
 	--UI_Mods.Buttons.initButton(gui.get_node("quit"), "Quit")
 	self.muted = false
 	self.timer = -1
@@ -43,18 +44,7 @@ function init(self)
 end
 
 function update(self, dt)
-	if self.running == true then
-		self.timer = self.timer + dt
-		local minute = string.format("%02d", self.timer/60)
-		local second = string.format("%02d", self.timer-(minute*60))
-		gui.set_text(gui.get_node("clock_text"), minute..":"..second)
-		--gui.set_flipbook_cursor(gui.get_node("level"),1)
-		UI_Mods.Clock.setTime(gui.get_node("clock_front"), second)
-		--[[if self.timer < 15 and self.flashing == false then
-			self.flashing = true
-			UI_Mods.Clock.setFlash(gui.get_node("clock_back"), true)
-		end]]
-	end
+	
 end
 
 function final(self)
@@ -63,28 +53,13 @@ function final(self)
 end
 
 local message_functions = {
-	["Begin_timer"] = function (self,message,sender)
-		
-		self.timer = message.time
-		self.running = true
-		UI_Mods.Clock.setTime(gui.get_node("clock"), self.timer/60)
-	end,
-	["stop_timer"] = function (self,message,sender)
-		UI_Mods.Clock.setTime(gui.get_node("clock_front"), 0)
-		msg.post(sender, "end_time",{time = self.timer})
-		self.running = false
-	end,
-	["switch_done"] = function (self,message,sender)
-		special_button(self, "switch",false)
-		gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
-	end,
 	["loaded_data"] = function (self,message,sender)
  		print("Data loaded")
 		self.muted = data.muted
 		--change_mute(self)
-		gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
+--		gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
 		--set_level_ui(self)
-		gui.set_text(gui.get_node("text/crystals"),data.crystals.."/24")
+--		gui.set_text(gui.get_node("text/crystals"),data.crystals.."/24")
 
 		gui.cancel_animation(self.load_bar, "size")
 		gui.animate(self.load_bar, "size", vmath.vector3(548,30,0), gui.EASING_OUTCUBIC, 2.6)
@@ -99,9 +74,6 @@ local message_functions = {
 		self.timer = 0
 		--set_level_ui(self)
 	end,
-	["unpause"] = function (self,message,sender)
-		pause(self)
-	end,
 	["save_game"] = function (self,message,sender)
 		msg.post("/game#Board_control", "timer_callback",{time = self.timer})
 	end,
@@ -115,56 +87,28 @@ local message_functions = {
 }
 
 function on_message(self, message_id, message, sender)
-	for i,v in pairs(message_functions) do
+	for i,v in pairs(message_functions) do --probably don't need a loop
 		if message_id == hash(i) then
 			v(self,message,sender)
 		end
 	end
 end
 
+local function changeToGame()
+	msg.post("/ui_fade#fade", "fade")
+		timer.delay(0.4, false, function (self, handle, time_elapsed)
+			msg.post("/gui#in_game_ui", "enable")
+			msg.post("#", "disable")
+		end)
+end
+
 local pick_node_actions = {
 	--TOP BAR
-	["switch_power"] = function (self) 
-		special_button(self,"switch")
-	end,
-	["crystals"] = function (self) 
-		gui.play_flipbook(gui.get_node("crystals"), "crystal_click")
-	end,
 	--[[["mute"] = function (self) 
 		self.muted = not self.muted
 		change_mute(self)
 	end,]]
-	--PAUSE
-	["pause"] = function (self) 
-		pause(self)
-	end,
-	["Pause/resume"] = function (self) 
-		UI_Mods.Buttons.Press(gui.get_node("Pause/resume"), "Resume")
-		pause(self)
-	end,
-	["Pause/options"] = function (self) 
-		self.current_menu = "Options"
-		UI_Mods.Buttons.Press(gui.get_node("Pause/options"), "Options")
-		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(960,110,0), false)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(960,110,0), false)
-		UI_Mods.Submenu.toggle_menu("Options", vmath.vector3(640,0,0), true)
-		UI_Mods.Buttons.Hover(gui.get_node("Options/back"), "Back",false)
-		timer.delay(1,false,function (self, handle, time_elapsed)
-			gui.set_enabled(gui.get_node("Options/back"), true)
-		end)
-	end,
-	["Pause/quit"] = function (self)
-		self.current_menu = "Start"
-		self.current_state = "Waiting"
-		msg.post("/game#Board_control", "clear")
-		UI_Mods.Buttons.Press(gui.get_node("Pause/quit"), "Quit")
-		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,0,0), true)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,0,0), false)
-		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,0,0), true)
-		timer.delay(1, false, function (self, handle, time_elapsed)
-			UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,1136,0), false,0.01)
-		end)
-	end,
+	
 	--STORE
 	["Store/back"] = function (self) 
 		self.current_menu = "Start"
@@ -172,18 +116,12 @@ local pick_node_actions = {
 		UI_Mods.Submenu.toggle_menu("Store", vmath.vector3(640,0,0), false)
 		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,0,0), true)
 	end,
-	--OPTIONS
+	--OPTIONS this will go in its own UI component at some point probably
 	["Options/back"] = function (self)
 		gui.set_enabled(gui.get_node("Options/back"), false)
 		UI_Mods.Submenu.toggle_menu("Options", vmath.vector3(0,0,0), false)
-		if self.current_state == "Playing" then
-			UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,110,0), true)
-			UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,110,0), true)
-			self.current_menu = "Pause"
-		else
-			self.current_menu = "Start"
-			UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,0,0), true)
-		end
+		self.current_menu = "Start"
+		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,0,0), true)
 	end,
 	--START
 	["Start/Store"] = function (self) 
@@ -199,7 +137,7 @@ local pick_node_actions = {
 
 	["Start/Options"] = function (self) 
 		self.current_menu = "Options"
-		print(self.current_state)
+		--print(self.current_state)
 		UI_Mods.Buttons.Press(gui.get_node("Start/Options"), "Options")
 		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(640,0,0), false)
 		UI_Mods.Submenu.toggle_menu("Options", vmath.vector3(640,0,0), true)
@@ -228,8 +166,7 @@ local pick_node_actions = {
 		self.running = true
 		msg.post("/game#Board_control", "continue")
 		UI_Mods.Buttons.Press(gui.get_node("Start/Continue"), "Continue")
-		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,1136,0), false)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,1136,0), true)
+		changeToGame()
 		self.current_state = "Playing"
 	end,
 	--NEW GAME
@@ -240,20 +177,52 @@ local pick_node_actions = {
 		self.text_editing = UI_Mods.TextInput.editText(self.text_editing,gui.get_node("New/v_size"))
 	end,
 	["New/start"] = function (self,action)
-		self.current_menu = "Game"
-		self.running = true
+		self.current_menu = "Start"
+		--self.running = true
 		UI_Mods.Buttons.Press(gui.get_node("New/start"), "Continue")
+		timer.delay(0.4, false, function (self, handle, time_elapsed)
+			UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,0,0), true,0.1)
+			UI_Mods.Submenu.toggle_menu("New", vmath.vector3(320,0,0), false,0.1)
+		end)
+		self.current_state = "Waiting"
+		msg.post("/game#Board_control", "create_board",
+			{sizex = gui.get_text(gui.get_node("New/h_size")),
+			sizey = gui.get_text(gui.get_node("New/v_size")),
+			pieces = self.piece_selections})
+		changeToGame()
+
+		----everything past this is no longer used----
+		--[[
 		UI_Mods.Submenu.toggle_menu("New", vmath.vector3(320,1136*2,0), false)
 		timer.delay(1, false, function (self, handle, time_elapsed)
 			UI_Mods.Submenu.toggle_menu("New", vmath.vector3(320,0,0), false)
 		end)
 		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,1136,0), true)
-		msg.post("/game#Board_control", "create_board",
-			{sizex = gui.get_text(gui.get_node("New/h_size")),sizey = gui.get_text(gui.get_node("New/v_size")),pieces = self.piece_selections})
-		self.current_state = "Playing"
+		
+		self.current_state = "Playing"]]
 		
 	end,
 }
+
+local function pieceSelection(self,action)
+	for i,_ in pairs(self.piece_selections) do
+		local p_node = gui.get_node("New/"..i.."/back")
+		if gui.pick_node(p_node, action.x, action.y) then
+			if self.piece_selections[i] == false  then -- not already selected
+				--The GUI flipbook animations are disabled as they do not work at the moment
+				gui.set_color(p_node,UI_Mods.Colors.hex(self.piece_colors[i]))
+				self.piece_selections[i] = true
+				self.pieces_selected = self.pieces_selected + 1
+				--gui.play_flipbook(gui.get_node(i.."/tex"), i)
+			elseif self.pieces_selected > 2 then-- already selected
+				gui.set_color(p_node,vmath.vector3(.7))
+				self.piece_selections[i] = false
+				self.pieces_selected = self.pieces_selected - 1
+				--gui.play_flipbook(gui.get_node(i.."/tex"), i.."_reverse")
+			end
+		end
+	end
+end
 
 function on_input(self, action_id, action)
 	if action_id == hash("text_input") then
@@ -272,26 +241,10 @@ function on_input(self, action_id, action)
 		if self.text_editing then
 			UI_Mods.TextInput.endText(self.text_editing)
 		end
-		for i,_ in pairs(self.piece_selections) do
-			local p_node = gui.get_node("New/"..i.."/back")
-			if gui.pick_node(p_node, action.x, action.y) then
-				if self.piece_selections[i] == false  then -- not already selected
-					gui.set_color(p_node,UI_Mods.Colors.hex(self.piece_colors[i]))
-					
-					self.piece_selections[i] = true
-					self.pieces_selected = self.pieces_selected + 1
-					--gui.play_flipbook(gui.get_node(i.."/tex"), i)
-				elseif self.pieces_selected > 2 then-- already selected
-					gui.set_color(p_node,vmath.vector3(.7))
-					self.piece_selections[i] = false
-					self.pieces_selected = self.pieces_selected - 1
-					--gui.play_flipbook(gui.get_node(i.."/tex"), i.."_reverse")
-				end
-			end
-		end
+		pieceSelection(self,action)
 		for i,v in pairs(pick_node_actions) do
 			if gui.pick_node(gui.get_node(i), action.x, action.y) then
-				print(self.current_menu)
+				--print(self.current_menu)
 				v(self,action)
 			end
 		end
@@ -343,40 +296,19 @@ function changeBackgroundColor(self) --change to cycle color
 	startChanging()
 end
 
-function pause(self)
-	if self.running == true and self.current_menu == "Game" then
-		self.current_menu = "Pause"
-		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,110,0), true)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,110,0), true)
-		self.running = false
-	elseif self.current_menu == "Pause" then
-		self.current_menu = "Game"
-		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,1136,0), true)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,1136,0), true)
-		self.running = true
-	end
-end
-
+--[[ mute will be managed by the options ui
 function change_mute(self)
 	if self.muted then
 		gui.play_flipbook(gui.get_node("mute"), "button_mute")
 	else
 		gui.play_flipbook(gui.get_node("mute"), "button_unmute")
 	end
-	msg.post("/music#control", "mute",{muted = self.muted})
+	msg.post("/music#music_control", "mute",{muted = self.muted})
 end
+]]
 
-function special_button(self,name,state)
-	if self.special_buttons[name] == true or state == false then
-		self.special_buttons[name] = false
-		gui.play_flipbook(gui.get_node(name.."_power"), name.."_power_reverse")
-	elseif data[name.."_power"] >= 1 then
-		self.special_buttons[name] = true
-		gui.play_flipbook(gui.get_node(name.."_power"), name.."_power")
-	end
-	msg.post("/game#Board_control", name.."_power",{value = self.special_buttons[name]})
-end
 
+--[[ EXP is currently not used and may be scrapped
 function set_level_ui(self)
 	self.lvl = leveling.get_level(data.exp) --current level (ex. 7)
 	self.nextlvl = leveling.get_required_exp(self.lvl+1) --exp required for next level (ex. 26200)
@@ -435,4 +367,4 @@ function increase_exp(self)
 	self.required = (self.nextlvl-self.currentlvl)
 	--print(self.required)
 	timer.delay(0.01, true, increase_bar)
-end
+end]]

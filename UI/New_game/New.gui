@@ -20,7 +20,7 @@ textures {
 }
 textures {
   name: "Main"
-  texture: "/UI/Main/Main.atlas"
+  texture: "/UI/in_game/pause_menu.atlas"
 }
 textures {
   name: "icons"

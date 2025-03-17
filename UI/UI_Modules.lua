@@ -100,15 +100,17 @@ function M.Submenu.toggle_menu(menu_type,location,enable,duration)
     local node
     if menu_type == "Top" then
         node = gui.get_node("ui_top")
+	elseif menu_type == "Pause" then
+		node = gui.get_node("pause_menu")
     else
         node = M.Submenu.get_submenu_node(menu_type,"main")
     end
-    if enable == true then 
+    if enable == true then
         gui.set_enabled(node, true)
     end
 	gui.animate(node, "position", location, gui.EASING_INOUTQUAD, duration,0,function()
         if enable == false then
-            print("disabled")
+            --print("disabled")
             gui.set_enabled(node, false)
         end
     end)

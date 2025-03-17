@@ -1,0 +1,7 @@
+images {
+  image: "/UI/assets/clock/Clock_back.png"
+}
+images {
+  image: "/UI/assets/clock/Clock_Face.png"
+}
+extrude_borders: 2

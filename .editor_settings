@@ -2,10 +2,6 @@
   :workflow {
     :recent-files [
       [
-        "/Games/board.tilemap"
-        :scene
-      ]
-      [
         "/Games/Board.go"
         :scene
       ]
@@ -19,10 +15,6 @@
       ]
       [
         "/background/background.go"
-        :scene
-      ]
-      [
-        "/main/main.collection"
         :scene
       ]
       [
@@ -82,10 +74,6 @@
         :scene
       ]
       [
-        "/assets/piece_assets/pieces.atlas"
-        :scene
-      ]
-      [
         "/render/mobile.display_profiles"
         :cljfx-form-view
       ]
@@ -99,6 +87,42 @@
       ]
       [
         "/main/confetti.particlefx"
+        :scene
+      ]
+      [
+        "/assets/piece_assets/pieces.atlas"
+        :scene
+      ]
+      [
+        "/UI/assets/Star.particlefx"
+        :scene
+      ]
+      [
+        "/UI/in_game_ui/test.render_target"
+        :cljfx-form-view
+      ]
+      [
+        "/UI/Main/Main.atlas"
+        :scene
+      ]
+      [
+        "/main/main.collection"
+        :scene
+      ]
+      [
+        "/UI/main_menu/main_ui.gui"
+        :scene
+      ]
+      [
+        "/UI/assets/clock/clock_tex.atlas"
+        :scene
+      ]
+      [
+        "/UI/in_game_ui/in_game.gui"
+        :scene
+      ]
+      [
+        "/UI/main_menu/fade.gui"
         :scene
       ]
       [

@@ -16,7 +16,7 @@ textures {
 }
 textures {
   name: "abilities"
-  texture: "/main/abilities.atlas"
+  texture: "/UI/Store_menu/abilities.atlas"
 }
 textures {
   name: "Buttons"

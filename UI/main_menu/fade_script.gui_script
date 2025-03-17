@@ -1,0 +1,23 @@
+
+local boxnode
+function init(self)
+	boxNode = gui.get_node("box")
+end
+
+local function fadeOut(sender)
+	--msg.post(sender, "transition")
+	timer.delay(0.5, false, function (self, handle, time_elapsed)
+		gui.animate(boxNode, "color.w", 0, gui.EASING_OUTSINE, 0.4)
+	end)
+	
+end
+
+local function fadeIn(sender)
+	gui.animate(boxNode, "color.w", 1, gui.EASING_INSINE, 0.4,0,fadeOut)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("fade") then
+		fadeIn(sender)
+	end
+end

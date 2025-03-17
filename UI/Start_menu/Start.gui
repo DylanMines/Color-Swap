@@ -1,7 +1,7 @@
-script: "/UI/Main/main.gui_script"
+script: "/UI/main_menu/main.gui_script"
 fonts {
   name: "Roboto"
-  font: "/main/Roboto.font"
+  font: "/fonts/Roboto.font"
 }
 fonts {
   name: "sobiscuit_large"
@@ -25,7 +25,7 @@ textures {
 }
 textures {
   name: "abilities"
-  texture: "/main/abilities.atlas"
+  texture: "/UI/Store_menu/abilities.atlas"
 }
 textures {
   name: "crystals"
