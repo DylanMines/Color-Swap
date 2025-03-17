@@ -2,10 +2,6 @@
   :workflow {
     :recent-files [
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/Games/board.tilemap"
         :scene
       ]
@@ -92,6 +88,10 @@
       [
         "/main/main.atlas"
         :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
       ]
     ]
   }

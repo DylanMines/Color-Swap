@@ -9,15 +9,15 @@ fonts {
 }
 fonts {
   name: "sobiscuit_large"
-  font: "/Fonts/sobiscuit_large.font"
+  font: "/fonts/sobiscuit_large.font"
 }
 fonts {
   name: "sobiscuit_medium"
-  font: "/Fonts/sobiscuit_medium.font"
+  font: "/fonts/sobiscuit_medium.font"
 }
 fonts {
   name: "sobiscuit_small"
-  font: "/Fonts/sobiscuit_small.font"
+  font: "/fonts/sobiscuit_small.font"
 }
 textures {
   name: "main"

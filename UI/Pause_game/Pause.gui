@@ -1,10 +1,10 @@
 fonts {
   name: "sobiscuit_large"
-  font: "/Fonts/sobiscuit_large.font"
+  font: "/fonts/sobiscuit_large.font"
 }
 fonts {
   name: "sobiscuit_medium"
-  font: "/Fonts/sobiscuit_medium.font"
+  font: "/fonts/sobiscuit_medium.font"
 }
 textures {
   name: "Buttons"

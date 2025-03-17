@@ -1,4 +1,6 @@
-font: "/fonts/RobotoMono-VariableFont_wght.ttf"
+font: "/fonts/Sobiscuit.ttf"
 material: "/builtins/fonts/font.material"
-size: 26
+size: 65
+outline_alpha: 1.0
+outline_width: 3.0
 characters: " !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"

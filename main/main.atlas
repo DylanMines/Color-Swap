@@ -1,26 +1,8 @@
 images {
-  image: "/assets/app_icons/icon_180.png"
-}
-images {
-  image: "/assets/clock_back.png"
-}
-images {
-  image: "/assets/clock_hand.png"
-}
-images {
-  image: "/assets/clock_outline.png"
-}
-images {
-  image: "/assets/one_empty.png"
+  image: "/assets/unused/app_icons/icon_180.png"
 }
 images {
   image: "/assets/size_icon.png"
-}
-images {
-  image: "/assets/three_empty.png"
-}
-images {
-  image: "/assets/two_empty.png"
 }
 images {
   image: "/assets/mute_button/unmute.png"
@@ -35,36 +17,36 @@ images {
   image: "/UI/loading/loading_back.png"
 }
 images {
-  image: "/assets/light.png"
+  image: "/assets/unused/light.png"
 }
 animations {
   id: "button_menu_click"
   images {
-    image: "/assets/menu_button_press/0.png"
+    image: "/assets/unused/menu_button_press/0.png"
   }
   images {
-    image: "/assets/menu_button_press/1.png"
+    image: "/assets/unused/menu_button_press/1.png"
   }
   images {
-    image: "/assets/menu_button_press/2.png"
+    image: "/assets/unused/menu_button_press/2.png"
   }
   images {
-    image: "/assets/menu_button_press/3.png"
+    image: "/assets/unused/menu_button_press/3.png"
   }
   images {
-    image: "/assets/menu_button_press/4.png"
+    image: "/assets/unused/menu_button_press/4.png"
   }
   images {
-    image: "/assets/menu_button_press/5.png"
+    image: "/assets/unused/menu_button_press/5.png"
   }
   images {
-    image: "/assets/menu_button_press/6.png"
+    image: "/assets/unused/menu_button_press/6.png"
   }
   images {
-    image: "/assets/menu_button_press/7.png"
+    image: "/assets/unused/menu_button_press/7.png"
   }
   images {
-    image: "/assets/menu_button_press/8.png"
+    image: "/assets/unused/menu_button_press/8.png"
   }
   fps: 60
 }
@@ -310,37 +292,37 @@ animations {
 animations {
   id: "button_main_menu"
   images {
-    image: "/assets/Menu_button/00.png"
+    image: "/assets/unused/Menu_button/00.png"
   }
   images {
-    image: "/assets/Menu_button/01.png"
+    image: "/assets/unused/Menu_button/01.png"
   }
   images {
-    image: "/assets/Menu_button/02.png"
+    image: "/assets/unused/Menu_button/02.png"
   }
   images {
-    image: "/assets/Menu_button/03.png"
+    image: "/assets/unused/Menu_button/03.png"
   }
   images {
-    image: "/assets/Menu_button/04.png"
+    image: "/assets/unused/Menu_button/04.png"
   }
   images {
-    image: "/assets/Menu_button/05.png"
+    image: "/assets/unused/Menu_button/05.png"
   }
   images {
-    image: "/assets/Menu_button/06.png"
+    image: "/assets/unused/Menu_button/06.png"
   }
   images {
-    image: "/assets/Menu_button/07.png"
+    image: "/assets/unused/Menu_button/07.png"
   }
   images {
-    image: "/assets/Menu_button/08.png"
+    image: "/assets/unused/Menu_button/08.png"
   }
   images {
-    image: "/assets/Menu_button/09.png"
+    image: "/assets/unused/Menu_button/09.png"
   }
   images {
-    image: "/assets/Menu_button/10.png"
+    image: "/assets/unused/Menu_button/10.png"
   }
   fps: 60
 }
