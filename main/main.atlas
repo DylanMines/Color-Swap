@@ -122,187 +122,187 @@ animations {
 animations {
   id: "Clock"
   images {
-    image: "/assets/Clock/start.png"
+    image: "/UI/assets/clock/Clock/start.png"
   }
   images {
-    image: "/assets/Clock/01.png"
+    image: "/UI/assets/clock/Clock/01.png"
   }
   images {
-    image: "/assets/Clock/02.png"
+    image: "/UI/assets/clock/Clock/02.png"
   }
   images {
-    image: "/assets/Clock/03.png"
+    image: "/UI/assets/clock/Clock/03.png"
   }
   images {
-    image: "/assets/Clock/04.png"
+    image: "/UI/assets/clock/Clock/04.png"
   }
   images {
-    image: "/assets/Clock/05.png"
+    image: "/UI/assets/clock/Clock/05.png"
   }
   images {
-    image: "/assets/Clock/06.png"
+    image: "/UI/assets/clock/Clock/06.png"
   }
   images {
-    image: "/assets/Clock/07.png"
+    image: "/UI/assets/clock/Clock/07.png"
   }
   images {
-    image: "/assets/Clock/08.png"
+    image: "/UI/assets/clock/Clock/08.png"
   }
   images {
-    image: "/assets/Clock/09.png"
+    image: "/UI/assets/clock/Clock/09.png"
   }
   images {
-    image: "/assets/Clock/10.png"
+    image: "/UI/assets/clock/Clock/10.png"
   }
   images {
-    image: "/assets/Clock/11.png"
+    image: "/UI/assets/clock/Clock/11.png"
   }
   images {
-    image: "/assets/Clock/12.png"
+    image: "/UI/assets/clock/Clock/12.png"
   }
   images {
-    image: "/assets/Clock/13.png"
+    image: "/UI/assets/clock/Clock/13.png"
   }
   images {
-    image: "/assets/Clock/14.png"
+    image: "/UI/assets/clock/Clock/14.png"
   }
   images {
-    image: "/assets/Clock/15.png"
+    image: "/UI/assets/clock/Clock/15.png"
   }
   images {
-    image: "/assets/Clock/16.png"
+    image: "/UI/assets/clock/Clock/16.png"
   }
   images {
-    image: "/assets/Clock/17.png"
+    image: "/UI/assets/clock/Clock/17.png"
   }
   images {
-    image: "/assets/Clock/18.png"
+    image: "/UI/assets/clock/Clock/18.png"
   }
   images {
-    image: "/assets/Clock/19.png"
+    image: "/UI/assets/clock/Clock/19.png"
   }
   images {
-    image: "/assets/Clock/20.png"
+    image: "/UI/assets/clock/Clock/20.png"
   }
   images {
-    image: "/assets/Clock/21.png"
+    image: "/UI/assets/clock/Clock/21.png"
   }
   images {
-    image: "/assets/Clock/22.png"
+    image: "/UI/assets/clock/Clock/22.png"
   }
   images {
-    image: "/assets/Clock/23.png"
+    image: "/UI/assets/clock/Clock/23.png"
   }
   images {
-    image: "/assets/Clock/24.png"
+    image: "/UI/assets/clock/Clock/24.png"
   }
   images {
-    image: "/assets/Clock/25.png"
+    image: "/UI/assets/clock/Clock/25.png"
   }
   images {
-    image: "/assets/Clock/26.png"
+    image: "/UI/assets/clock/Clock/26.png"
   }
   images {
-    image: "/assets/Clock/27.png"
+    image: "/UI/assets/clock/Clock/27.png"
   }
   images {
-    image: "/assets/Clock/28.png"
+    image: "/UI/assets/clock/Clock/28.png"
   }
   images {
-    image: "/assets/Clock/29.png"
+    image: "/UI/assets/clock/Clock/29.png"
   }
   images {
-    image: "/assets/Clock/30.png"
+    image: "/UI/assets/clock/Clock/30.png"
   }
   images {
-    image: "/assets/Clock/31.png"
+    image: "/UI/assets/clock/Clock/31.png"
   }
   images {
-    image: "/assets/Clock/32.png"
+    image: "/UI/assets/clock/Clock/32.png"
   }
   images {
-    image: "/assets/Clock/33.png"
+    image: "/UI/assets/clock/Clock/33.png"
   }
   images {
-    image: "/assets/Clock/34.png"
+    image: "/UI/assets/clock/Clock/34.png"
   }
   images {
-    image: "/assets/Clock/35.png"
+    image: "/UI/assets/clock/Clock/35.png"
   }
   images {
-    image: "/assets/Clock/36.png"
+    image: "/UI/assets/clock/Clock/36.png"
   }
   images {
-    image: "/assets/Clock/37.png"
+    image: "/UI/assets/clock/Clock/37.png"
   }
   images {
-    image: "/assets/Clock/38.png"
+    image: "/UI/assets/clock/Clock/38.png"
   }
   images {
-    image: "/assets/Clock/39.png"
+    image: "/UI/assets/clock/Clock/39.png"
   }
   images {
-    image: "/assets/Clock/40.png"
+    image: "/UI/assets/clock/Clock/40.png"
   }
   images {
-    image: "/assets/Clock/41.png"
+    image: "/UI/assets/clock/Clock/41.png"
   }
   images {
-    image: "/assets/Clock/42.png"
+    image: "/UI/assets/clock/Clock/42.png"
   }
   images {
-    image: "/assets/Clock/43.png"
+    image: "/UI/assets/clock/Clock/43.png"
   }
   images {
-    image: "/assets/Clock/44.png"
+    image: "/UI/assets/clock/Clock/44.png"
   }
   images {
-    image: "/assets/Clock/45.png"
+    image: "/UI/assets/clock/Clock/45.png"
   }
   images {
-    image: "/assets/Clock/46.png"
+    image: "/UI/assets/clock/Clock/46.png"
   }
   images {
-    image: "/assets/Clock/47.png"
+    image: "/UI/assets/clock/Clock/47.png"
   }
   images {
-    image: "/assets/Clock/48.png"
+    image: "/UI/assets/clock/Clock/48.png"
   }
   images {
-    image: "/assets/Clock/49.png"
+    image: "/UI/assets/clock/Clock/49.png"
   }
   images {
-    image: "/assets/Clock/50.png"
+    image: "/UI/assets/clock/Clock/50.png"
   }
   images {
-    image: "/assets/Clock/51.png"
+    image: "/UI/assets/clock/Clock/51.png"
   }
   images {
-    image: "/assets/Clock/52.png"
+    image: "/UI/assets/clock/Clock/52.png"
   }
   images {
-    image: "/assets/Clock/53.png"
+    image: "/UI/assets/clock/Clock/53.png"
   }
   images {
-    image: "/assets/Clock/54.png"
+    image: "/UI/assets/clock/Clock/54.png"
   }
   images {
-    image: "/assets/Clock/55.png"
+    image: "/UI/assets/clock/Clock/55.png"
   }
   images {
-    image: "/assets/Clock/56.png"
+    image: "/UI/assets/clock/Clock/56.png"
   }
   images {
-    image: "/assets/Clock/57.png"
+    image: "/UI/assets/clock/Clock/57.png"
   }
   images {
-    image: "/assets/Clock/58.png"
+    image: "/UI/assets/clock/Clock/58.png"
   }
   images {
-    image: "/assets/Clock/59.png"
+    image: "/UI/assets/clock/Clock/59.png"
   }
   images {
-    image: "/assets/Clock/60.png"
+    image: "/UI/assets/clock/Clock/60.png"
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 1

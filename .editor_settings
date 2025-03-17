@@ -62,10 +62,6 @@
         :scene
       ]
       [
-        "/main/main.atlas"
-        :scene
-      ]
-      [
         "/main/stars.atlas"
         :scene
       ]
@@ -91,6 +87,10 @@
       ]
       [
         "/main/crystals.atlas"
+        :scene
+      ]
+      [
+        "/main/main.atlas"
         :scene
       ]
     ]
