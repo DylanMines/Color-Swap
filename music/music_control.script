@@ -7,12 +7,12 @@ local sounds = {
 	"/music/Super-Friendly.ogg"
 }
 
-function init(self)
+--[[function init(self) DISABLED FOR TESTING ONLY
 	complete()
 	if (game_data.muted) then
 		sound.pause("#current", true)
 	end
-end
+end]]
 
 function complete()
 	local new_sound = math.random(1,#sounds)
