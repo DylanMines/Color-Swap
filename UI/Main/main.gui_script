@@ -1,4 +1,4 @@
-local data = require("main.game-data")
+local data = require("main.game_data")
 local leveling = require("main.leveling")
 local UI_Mods = require("UI.UI_Modules")
 local last_exp = 0

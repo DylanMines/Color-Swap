@@ -82,10 +82,6 @@
         :scene
       ]
       [
-        "/game.project"
-        :cljfx-form-view
-      ]
-      [
         "/assets/piece_assets/pieces.atlas"
         :scene
       ]
@@ -104,6 +100,10 @@
       [
         "/main/confetti.particlefx"
         :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
       ]
     ]
   }

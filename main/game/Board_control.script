@@ -12,7 +12,7 @@ score: (difficulty/time) * 1000
 powerup: -150 score
 ]]
 
-local data = require("main.game-data")
+local data = require("main.game.game_data")
 local game_save = require("Games.game_save")
 function init(self)
 	msg.post(".", "acquire_input_focus")

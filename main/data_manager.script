@@ -1,5 +1,5 @@
-local data = require("main.game-data")
-local game_save = require("Games.game_save")
+local data = require("main.game_data")
+local game_save = require("main.game.game_save")
 
 function init(self)
 	self.file_path = sys.get_save_file("Color_Swap", "save.gamedata")

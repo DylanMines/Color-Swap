@@ -1,4 +1,4 @@
-local lights = require "Render.lights"
+local lights = require "render.lights"
 
 --
 -- projection that centers content with maintained aspect ratio and optional zoom
