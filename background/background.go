@@ -8,4 +8,8 @@ embedded_components {
   "  texture: \"/background/background.atlas\"\n"
   "}\n"
   ""
+  scale {
+    x: 1.2
+    y: 1.2
+  }
 }

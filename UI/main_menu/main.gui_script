@@ -155,7 +155,6 @@ local pick_node_actions = {
 	end,
 	["Start/New"] = function (self)
 		self.current_menu = "New"
-		self.running = false
 		UI_Mods.Buttons.Press(gui.get_node("Start/New"), "New")
 		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,1136,0), false)
 		UI_Mods.Submenu.toggle_menu("New", vmath.vector3(320,1136,0), true)

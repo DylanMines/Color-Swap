@@ -19,8 +19,9 @@ function init(self)
 			game_save[i] = v
 		end
 	end
-	msg.post("/GUI#Main_UI", "loaded_data")
+	msg.post("/gui#main_UI", "loaded_data")
 end
+
 function final(self)
 	if not sys.save(self.file_path, data) then
 		print("not saved")

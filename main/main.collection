@@ -5,7 +5,7 @@ instances {
   position {
     x: 320.0
     y: 568.0
-    z: -1.0
+    z: -0.75
   }
 }
 scale_along_z: 0
@@ -13,11 +13,11 @@ embedded_instances {
   id: "game"
   data: "components {\n"
   "  id: \"board\"\n"
-  "  component: \"/Games/board.tilemap\"\n"
+  "  component: \"/main/game/board.tilemap\"\n"
   "}\n"
   "components {\n"
   "  id: \"Board_control\"\n"
-  "  component: \"/Games/Board_control.script\"\n"
+  "  component: \"/main/game/Board_control.script\"\n"
   "}\n"
   ""
 }
@@ -29,12 +29,27 @@ embedded_instances {
   "  position {\n"
   "    x: -276.0\n"
   "    y: -1111.0\n"
+  "    z: 0.75\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"confetti1\"\n"
+  "  component: \"/main/confetti.particlefx\"\n"
+  "  position {\n"
+  "    x: 242.0\n"
+  "    y: -1111.0\n"
+  "    z: 0.75\n"
+  "  }\n"
+  "  rotation {\n"
+  "    z: 0.70710677\n"
+  "    w: 0.70710677\n"
   "  }\n"
   "}\n"
   ""
   position {
     x: 320.0
     y: 1100.0
+    z: 0.75
   }
 }
 embedded_instances {
@@ -64,14 +79,18 @@ embedded_instances {
   ""
 }
 embedded_instances {
-  id: "GUI"
+  id: "gui"
   data: "components {\n"
-  "  id: \"Main_UI\"\n"
-  "  component: \"/UI/Main/Main.gui\"\n"
+  "  id: \"main_UI\"\n"
+  "  component: \"/UI/main_menu/main_ui.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"in_game_ui\"\n"
+  "  component: \"/UI/in_game/in_game_ui.gui\"\n"
   "}\n"
   ""
   position {
-    z: 1.0
+    z: 0.9
   }
 }
 embedded_instances {
@@ -87,4 +106,15 @@ embedded_instances {
   "\"\n"
   "}\n"
   ""
+}
+embedded_instances {
+  id: "ui_fade"
+  data: "components {\n"
+  "  id: \"fade\"\n"
+  "  component: \"/UI/main_menu/fade.gui\"\n"
+  "}\n"
+  ""
+  position {
+    z: 1.0
+  }
 }

@@ -1,8 +1,8 @@
 components {
   id: "5x5"
-  component: "/Games/board.tilemap"
+  component: "/main/game/board.tilemap"
 }
 components {
   id: "Board_control"
-  component: "/Games/Board_control.script"
+  component: "/main/game/Board_control.script"
 }

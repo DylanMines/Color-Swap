@@ -1,4 +1,5 @@
 local data = require("main.game_data")
+local game_save = require("main.game.game_save")
 local leveling = require("main.leveling")
 local UI_Mods = require("UI.UI_Modules")
 local last_exp = 0
@@ -10,8 +11,8 @@ function init(self)
 	-- Add initialization code here
 	-- Learn more: https://defold.com/manuals/script/
 	-- Remove this function if not needed
-	self.running = true
-	self.timer=0
+	self.running = false
+	self.timer = 0
 end
 
 function final(self)
@@ -67,14 +68,18 @@ local function special_button(self,name,state)
 	msg.post("/game#Board_control", name.."_power",{value = self.special_buttons[name]})
 end
 
+local function saveTime(self)
+	msg.post("/game#Board_control", "game_leave",{time = self.timer})
+end
+
 local message_functions = {
-	["Begin_timer"] = function (self,message,sender)
+	["begin_timer"] = function (self,message,sender)
 		self.timer = message.time
 		self.running = true
-		UI_Mods.Clock.setTime(gui.get_node("clock"), self.timer/60)
+		UI_Mods.Clock.setTime(gui.get_node("clock_hand"), self.timer/60)
 	end,
 	["stop_timer"] = function (self,message,sender)
-		UI_Mods.Clock.setTime(gui.get_node("clock_front"), 0)
+		UI_Mods.Clock.setTime(gui.get_node("clock_hand"), 0)
 		msg.post(sender, "end_time",{time = self.timer})
 		self.running = false
 	end,
@@ -106,8 +111,8 @@ local message_functions = {
    ["unpause"] = function (self,message,sender)
 	   pause(self)
    end,
-   ["save_game"] = function (self,message,sender)
-	   msg.post("/game#Board_control", "timer_callback",{time = self.timer})
+   ["save_game"] = function (self,message,sender) --this is NEVER CALLED!
+	   saveTime(self)
    end
 }
 
@@ -119,8 +124,8 @@ function on_message(self, message_id, message, sender)
 	end
 end
 
+
 local function changeToMain()
-	
 	msg.post("/ui_fade#fade", "fade")
 		timer.delay(0.4, false, function (self, handle, time_elapsed)
 			
@@ -166,9 +171,18 @@ local pick_node_actions = {
 		msg.post("/game#Board_control", "clear")
 		UI_Mods.Buttons.Press(gui.get_node("quit"), "Quit")
 		pause(self)
+		saveTime(self)
 		changeToMain()
 	end
 }
+
+function final(self)
+	saveTime(self)
+end
+
+function on_quit(self)
+	saveTime(self)
+end
 
 function on_input(self, action_id, action)
 	if action_id == hash("tap") and action.pressed then

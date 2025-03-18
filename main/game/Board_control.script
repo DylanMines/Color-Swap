@@ -12,8 +12,8 @@ score: (difficulty/time) * 1000
 powerup: -150 score
 ]]
 
-local data = require("main.game.game_data")
-local game_save = require("Games.game_save")
+local data = require("main.game_data")
+local game_save = require("main.game.game_save")
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.pos = go.get_position()
@@ -135,19 +135,23 @@ local function generate_board(self,sizex,sizey,pieces,save)
 		total = av
 		place_background_pieces(self,new_pieces,true)
 		place_pieces(self,shuffle_pieces(new_pieces))
-		msg.post("/GUI#Main_UI", "begin_timer",{time = 0})
+		game_save.time = 0
 	else
 		total = game_save.size.z
-		print(game_save.size)
+		--print(game_save.size)
 		place_background_pieces(self,game_save.template,false)
 		place_pieces(self,game_save.board)
-		msg.post("/GUI#Main_UI", "begin_timer",{time = game_save.time})
+		--print(game_save.time)
+		
 	end
 	--print(total)
 	self.complete = false
 	self.board_size.z = total
 	self.score = 0
 	save_game(self)
+	timer.delay(.45, false, function (self, handle, time_elapsed)
+		msg.post("/gui#in_game_ui", "begin_timer",{time = game_save.time or 0})
+	end)
 end
 
 function on_message(self, message_id, message, sender)
@@ -174,14 +178,15 @@ function on_message(self, message_id, message, sender)
 		data.exp = math.floor(data.exp + score/2.8)
 		msg.post(sender, "game_end")
 		data.saved = false
-		msg.post("/game_ui#menus", "game_end",{score = score})
+		msg.post("/gui#in_game_ui", "game_end",{score = score})
 	elseif message_id == hash("screen_to_world_callback") then
 		tap(message.x, message.y,self)
 	elseif message_id == hash("continue") then
 		--print(game_save.x,game_save.y)
 		generate_board(self, game_save.size.x, game_save.size.y, nil,true)
-	elseif message_id == hash("timer_callback") then
-		save_game(self, message.time)
+	elseif message_id == hash("game_leave") then
+		--print("time recieved: "..message.time)
+		game_save.time = message.time
 	end
 end
 
@@ -267,6 +272,10 @@ function swap(self,x1,y1,x2,y2)
 	return checkComplete(self)
 end
 
+function on_quit(self)
+	print("GAME IS CLOSING")
+end
+
 function clear_board(self)
 	for x = self.size.x+1,self.size.z/2 do
 		for y = self.size.y+1,self.size.w-1 do
@@ -295,12 +304,12 @@ function tap(x,y,self)
 	elseif self.powers.switch == true then
 		win_state = swap(self,tile.x, tile.y,self.last.x,self.last.y)
 		data.switch_power = data.switch_power - 1
-		msg.post("/game_ui#game", "switch_done")
+		msg.post("/gui#in_game_ui", "switch_done")
 	else
 		win_state = swap(self,tile.x, tile.y)
 	end
 	if win_state == true then 
-		msg.post("/GUI#Main_UI", "stop_timer")
+		msg.post("/gui#in_game_ui", "stop_timer")
 		msg.post("/sfx#SoundEffectController","play_sound_effect",{soundID = "clapping"})
 		particlefx.play("/confetti#confetti")
 		--msg.post("/game_ui#game", "game_end") this comes later
@@ -316,8 +325,7 @@ function on_input(self, action_id, action)
 end
 
 function save_game(self,time)
-	data.saved = true
-	game_save.time = time or 0
+	--game_save.time = time or 0
 	game_save.size = self.board_size
 	game_save.template = {}
 	game_save.board = {}
@@ -327,4 +335,5 @@ function save_game(self,time)
 			table.insert(game_save.board, tilemap.get_tile("#board", "pieces", x, y))
 		end
 	end
+	data.saved = true
 end
