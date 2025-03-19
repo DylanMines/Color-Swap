@@ -10,3 +10,5 @@ Thumbs.db
 builtins
 /.defold/api
 /.editor_settings
+.editor_settings
+/bundles
