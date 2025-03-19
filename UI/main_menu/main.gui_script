@@ -1,27 +1,15 @@
 local data = require("main.game_data")
-local leveling = require("main.leveling")
 local UI_Mods = require("UI.UI_Modules")
-local last_exp = 0
-local backHue = 0
-
 function init(self)
 	msg.post("/gui#in_game_ui", "disable")
 	self.load_bar = UI_Mods.Submenu.get_submenu_node("Loading","loading_bar")
 	msg.post(".", "acquire_input_focus")
 	self.running = false
-	--self.backgroundRunning = true --doesnt do anything
-	--changeBackgroundColor(self)
 	self.special_buttons = {switch = false}
-	--gui.show_keyboard(gui.KEYBOARD_TYPE_NUMBER_PAD, false)
-	
-	--gui.play_flipbook(gui.get_node("stars"), "3_star")
---	gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
-	--UI_Mods.Buttons.initButton(gui.get_node("quit"), "Quit")
 	self.muted = false
 	self.timer = -1
 	self.flashing = false
-	--print(leveling.get_level(1540))
-	--print(leveling.get_required_exp(5))
+
 	self.piece_selections = {
 		["red"] = true,
 		["blue"] = true,
@@ -36,15 +24,10 @@ function init(self)
 		["purple"] = "#cc99cc",
 		["yellow"] = "#ffff80",
 		["cyan"] = "#99cccc"}
+	
 	self.pieces_selected = 3
 	self.text_editing = nil
 	self.current_menu = "Loading"
-	self.current_state = "Waiting"
-	
-end
-
-function update(self, dt)
-	
 end
 
 function final(self)
@@ -55,31 +38,18 @@ end
 local message_functions = {
 	["loaded_data"] = function (self,message,sender)
  		print("Data loaded")
-		self.muted = data.muted
-		--change_mute(self)
---		gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
-		--set_level_ui(self)
---		gui.set_text(gui.get_node("text/crystals"),data.crystals.."/24")
-
+		
 		gui.cancel_animation(self.load_bar, "size")
 		gui.animate(self.load_bar, "size", vmath.vector3(548,30,0), gui.EASING_OUTCUBIC, 2.6)
-		----gui.set_visible(gui.get_node("continue"), data.saved)
-		gui.set_enabled(gui.get_node("Start/Continue"), data.saved)
+
+		gui.set_enabled(gui.get_node("Start/Continue"), data.getSaved())
 		self.current_menu = "Start"
 		timer.delay(2.5, false, function (self, handle, time_elapsed)
 			gui.animate(UI_Mods.Submenu.get_submenu_node("Loading", "main"), "color.w", 0, gui.EASING_INEXPO, 0.7)
 		end)
 	end,
-	["game_end"] = function (self,message,sender)
-		self.timer = 0
-		--set_level_ui(self)
-	end,
-	["save_game"] = function (self,message,sender)
-		msg.post("/game#Board_control", "timer_callback",{time = self.timer})
-	end,
 	["attach_color_animation"] = function (self, message, sender)
 		local node = gui.get_node(message.node)
-		print("color animation")
 		gui.set_color(node, UI_Mods.Colors.hsbToRgb(0, 0.25, 0.90))
 		--gui.set_color(node, vmath.vector4(1,0,1,1))
 		gui.animate(node, "color", vmath.vector4(UI_Mods.Colors.hsbToRgb(1, 0.25, 0.90)), gui.EASING_LINEAR, 15)
@@ -98,17 +68,12 @@ local function changeToGame()
 	msg.post("/ui_fade#fade", "fade")
 		timer.delay(0.4, false, function (self, handle, time_elapsed)
 			msg.post("/gui#in_game_ui", "enable")
+			msg.post("/gui#in_game_ui", "loaded_data")
 			msg.post("#", "disable")
 		end)
 end
 
 local pick_node_actions = {
-	--TOP BAR
-	--[[["mute"] = function (self) 
-		self.muted = not self.muted
-		change_mute(self)
-	end,]]
-	
 	--STORE
 	["Store/back"] = function (self) 
 		self.current_menu = "Start"
@@ -189,17 +154,6 @@ local pick_node_actions = {
 			sizey = gui.get_text(gui.get_node("New/v_size")),
 			pieces = self.piece_selections})
 		changeToGame()
-
-		----everything past this is no longer used----
-		--[[
-		UI_Mods.Submenu.toggle_menu("New", vmath.vector3(320,1136*2,0), false)
-		timer.delay(1, false, function (self, handle, time_elapsed)
-			UI_Mods.Submenu.toggle_menu("New", vmath.vector3(320,0,0), false)
-		end)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,1136,0), true)
-		
-		self.current_state = "Playing"]]
-		
 	end,
 }
 
@@ -294,18 +248,6 @@ function changeBackgroundColor(self) --change to cycle color
 	end
 	startChanging()
 end
-
---[[ mute will be managed by the options ui
-function change_mute(self)
-	if self.muted then
-		gui.play_flipbook(gui.get_node("mute"), "button_mute")
-	else
-		gui.play_flipbook(gui.get_node("mute"), "button_unmute")
-	end
-	msg.post("/music#music_control", "mute",{muted = self.muted})
-end
-]]
-
 
 --[[ EXP is currently not used and may be scrapped
 function set_level_ui(self)

@@ -1,38 +1,26 @@
 local data = require("main.game_data")
 local game_save = require("main.game.game_save")
-local leveling = require("main.leveling")
 local UI_Mods = require("UI.UI_Modules")
-local last_exp = 0
-local backHue = 0
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	print(data.getSwitchPower())
 	self.running = false
 	self.timer = 0
 end
 
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+local function updateClock(self, dt)
+	self.timer = self.timer + dt
+	local minute = string.format("%02d", self.timer/60)
+	local second = string.format("%02d", self.timer-(minute*60))
+	gui.set_text(gui.get_node("text/clock"), minute..":"..second)
+	UI_Mods.Clock.setTime(gui.get_node("clock_hand"), second)
+	game_save.setTime(self.timer)
 end
 
 function update(self, dt)
 	if self.running == true then
-		self.timer = self.timer + dt
-		local minute = string.format("%02d", self.timer/60)
-		local second = string.format("%02d", self.timer-(minute*60))
-		gui.set_text(gui.get_node("text/clock"), minute..":"..second)
-		--gui.set_flipbook_cursor(gui.get_node("level"),1)
-		UI_Mods.Clock.setTime(gui.get_node("clock_hand"), second)
-		--[[if self.timer < 15 and self.flashing == false then
-			self.flashing = true
-			UI_Mods.Clock.setFlash(gui.get_node("clock_back"), true)
-		end]]
+		updateClock(self, dt)
 	end
 end
 
@@ -69,7 +57,7 @@ local function special_button(self,name,state)
 end
 
 local function saveTime(self)
-	msg.post("/game#Board_control", "game_leave",{time = self.timer})
+	game_save.setTime(self.timer);
 end
 
 local message_functions = {
@@ -85,35 +73,18 @@ local message_functions = {
 	end,
 	["switch_done"] = function (self,message,sender)
 		special_button(self, "switch",false)
-		gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
+		gui.set_text(gui.get_node("switch_amount"), "x"..data.getSwitchPower())
 	end,
 	["loaded_data"] = function (self,message,sender)
-		print("Data loaded")
-	   self.muted = data.muted
-	   --change_mute(self)
-	   gui.set_text(gui.get_node("switch_amount"), "x"..data.switch_power)
-	   --set_level_ui(self)
-	   gui.set_text(gui.get_node("text/crystals"),data.crystals.."/24")
-
-	   gui.cancel_animation(self.load_bar, "size")
-	   gui.animate(self.load_bar, "size", vmath.vector3(548,30,0), gui.EASING_OUTCUBIC, 2.6)
-	   ----gui.set_visible(gui.get_node("continue"), data.saved)
-	   gui.set_enabled(gui.get_node("Start/Continue"), data.saved)
-	   self.current_menu = "Start"
-	   timer.delay(2.5, false, function (self, handle, time_elapsed)
-		   gui.animate(UI_Mods.Submenu.get_submenu_node("Loading", "main"), "color.w", 0, gui.EASING_INEXPO, 0.7)
-	   end)
+	   gui.set_text(gui.get_node("switch_amount"), "x"..data.getSwitchPower())
+	   gui.set_text(gui.get_node("text/crystals"),data.getCrystals())
    end,
    ["game_end"] = function (self,message,sender)
 	   self.timer = 0
-	   --set_level_ui(self)
    end,
    ["unpause"] = function (self,message,sender)
 	   pause(self)
    end,
-   ["save_game"] = function (self,message,sender) --this is NEVER CALLED!
-	   saveTime(self)
-   end
 }
 
 function on_message(self, message_id, message, sender)
@@ -124,11 +95,9 @@ function on_message(self, message_id, message, sender)
 	end
 end
 
-
 local function changeToMain()
 	msg.post("/ui_fade#fade", "fade")
 		timer.delay(0.4, false, function (self, handle, time_elapsed)
-			
 			msg.post("/gui#main_UI", "enable")
 			msg.post("#", "disable")
 		end)
@@ -170,25 +139,16 @@ local pick_node_actions = {
 		self.current_state = "Waiting"
 		msg.post("/game#Board_control", "clear")
 		UI_Mods.Buttons.Press(gui.get_node("quit"), "Quit")
-		pause(self)
-		saveTime(self)
+		pause(self) -- if the quit button is shown the game is already paused, this is incase the game is resumed later
+		self.running = false -- don't let the timer keep going though (hacky fix could use a better implementation of pause)
 		changeToMain()
 	end
 }
-
-function final(self)
-	saveTime(self)
-end
-
-function on_quit(self)
-	saveTime(self)
-end
 
 function on_input(self, action_id, action)
 	if action_id == hash("tap") and action.pressed then
 		for i,v in pairs(pick_node_actions) do
 			if gui.pick_node(gui.get_node(i), action.x, action.y) then
-				--print(self.current_menu)
 				v(self)
 			end
 		end
