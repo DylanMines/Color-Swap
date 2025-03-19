@@ -125,7 +125,8 @@ local pick_node_actions = {
 		UI_Mods.Submenu.toggle_menu("New", vmath.vector3(320,1136,0), true)
 		self.current_state = "Waiting"
 	end,
-	["Start/Continue"] = function (self) 
+	["Start/Continue"] = function (self)
+		if not gui.is_enabled(gui.get_node("Start/Continue")) then return end
 		self.current_menu = "Game"
 		self.running = true
 		msg.post("/game#Board_control", "continue")
