@@ -181,7 +181,7 @@ nodes {
 }
 nodes {
   position {
-    x: -256.0
+    x: -66.0
     y: -55.0
   }
   size {
@@ -389,6 +389,7 @@ nodes {
   id: "win_menu"
   pivot: PIVOT_S
   adjust_mode: ADJUST_MODE_STRETCH
+  layer: "background"
   inherit_alpha: true
 }
 nodes {
@@ -458,6 +459,7 @@ nodes {
   texture: "stars/stars"
   id: "stars"
   parent: "win_menu"
+  layer: "middleground1"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
 }
@@ -490,6 +492,7 @@ nodes {
   texture: "icons/size_icon_x"
   id: "size"
   parent: "win_menu"
+  layer: "middleground1"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
 }
@@ -507,6 +510,7 @@ nodes {
   id: "size_text"
   pivot: PIVOT_W
   parent: "size"
+  layer: "middleground1"
   inherit_alpha: true
 }
 nodes {
@@ -520,6 +524,7 @@ nodes {
   type: TYPE_BOX
   id: "pieces_used"
   parent: "win_menu"
+  layer: "middleground1"
   inherit_alpha: true
   alpha: 0.0
   size_mode: SIZE_MODE_AUTO
@@ -537,6 +542,7 @@ nodes {
   id: "blue"
   pivot: PIVOT_S
   parent: "pieces_used"
+  layer: "middleground1"
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
@@ -552,6 +558,7 @@ nodes {
   id: "red"
   pivot: PIVOT_S
   parent: "pieces_used"
+  layer: "middleground1"
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
@@ -564,6 +571,7 @@ nodes {
   id: "green"
   pivot: PIVOT_S
   parent: "pieces_used"
+  layer: "middleground1"
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
@@ -579,6 +587,7 @@ nodes {
   id: "yellow"
   pivot: PIVOT_N
   parent: "pieces_used"
+  layer: "middleground1"
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
@@ -591,6 +600,7 @@ nodes {
   id: "cyan"
   pivot: PIVOT_N
   parent: "pieces_used"
+  layer: "middleground1"
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
@@ -606,6 +616,7 @@ nodes {
   id: "purple"
   pivot: PIVOT_N
   parent: "pieces_used"
+  layer: "middleground1"
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
@@ -720,6 +731,17 @@ nodes {
   pieFillAngle: 120.0
   size_mode: SIZE_MODE_AUTO
 }
+nodes {
+  position {
+    z: 1.0
+  }
+  type: TYPE_PARTICLEFX
+  id: "confetti"
+  layer: "foreground"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  particlefx: "confetti"
+}
 layers {
   name: "background"
 }
@@ -734,3 +756,7 @@ layers {
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
+particlefxs {
+  name: "confetti"
+  particlefx: "/main/confetti.particlefx"
+}

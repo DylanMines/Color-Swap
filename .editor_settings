@@ -57,10 +57,6 @@
         :scene
       ]
       [
-        "/main/confetti.particlefx"
-        :scene
-      ]
-      [
         "/UI/assets/Star.particlefx"
         :scene
       ]
@@ -87,10 +83,6 @@
       [
         "/main/main.collection"
         :scene
-      ]
-      [
-        "/game.project"
-        :cljfx-form-view
       ]
       [
         "/UI/assets/stars/stars.atlas"
@@ -133,15 +125,23 @@
         :cljfx-form-view
       ]
       [
-        "/UI/assets/icons/icons.atlas"
-        :scene
-      ]
-      [
         "/UI/New_game/New.gui"
         :scene
       ]
       [
         "/UI/in_game/in_game_ui.gui"
+        :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/UI/assets/icons/icons.atlas"
+        :scene
+      ]
+      [
+        "/main/confetti.particlefx"
         :scene
       ]
     ]

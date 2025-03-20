@@ -121,6 +121,7 @@ local function endGame(self,score)
 	local size = game_save.getSize()
 	gui.set_text(gui.get_node("size_text"), size.x.." x "..size.y)
 
+	gui.play_particlefx(gui.get_node("confetti"))
 end
 
 local function startGame(self,time) --simply for ease of reading
@@ -129,6 +130,8 @@ local function startGame(self,time) --simply for ease of reading
 	UI_Mods.Clock.setTime(gui.get_node("clock_hand"), self.timer/60)
 	gui.set_enabled(gui.get_node("pause_menu"), false)
 	gui.set_enabled(gui.get_node("win_menu"), true)
+
+	gui.set_text(gui.get_node("highscore"), "highscore: "..UI_Mods.StringFormat.getCommaValue(data.getHighScore()))
 end
 
 local message_functions = {
