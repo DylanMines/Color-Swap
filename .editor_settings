@@ -11,8 +11,12 @@
       :variant "debug"
       :with_symbols true
     }
-    :last-bundle-command :bundle-html5
-    :output-directory "/home/Dylan/Programming/Defold/Color Swap/Bundles/HTML5"
+    :last-bundle-command :bundle-android
+    :output-directory "/home/Dylan/Programming/Defold/Color Swap/bundles/0.1.4"
+  }
+  :run {
+    :simulate-rotated-device false
+    :simulated-resolution nil
   }
   :workflow {
     :recent-files [
