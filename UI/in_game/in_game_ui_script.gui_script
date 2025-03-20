@@ -4,7 +4,6 @@ local UI_Mods = require("UI.UI_Modules")
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	print(data.getSwitchPower())
 	self.running = false
 	self.timer = 0
 end
@@ -131,6 +130,9 @@ local function startGame(self,time) --simply for ease of reading
 	gui.set_enabled(gui.get_node("pause_menu"), false)
 	gui.set_enabled(gui.get_node("win_menu"), true)
 
+	UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,1136,0), true,0.01)
+	UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,1136,0), true,0.01)
+
 	gui.set_text(gui.get_node("highscore"), "highscore: "..UI_Mods.StringFormat.getCommaValue(data.getHighScore()))
 end
 
@@ -171,7 +173,6 @@ local function changeToMain()
 end
 
 local function leave(self,win)
-	self.current_menu = "Start"
 	self.current_state = "Waiting"
 	msg.post("/game#Board_control", "clear")
 	UI_Mods.Buttons.Press(gui.get_node("quit"), "Quit")
@@ -198,22 +199,25 @@ local pick_node_actions = {
 		UI_Mods.Buttons.Press(gui.get_node("resume"), "Resume")
 		pause(self)
 	end,
-	["options"] = function (self) 
+
+	--TODO: Fix this entire thing (will probably come with the options menu redo)
+	["options"] = function (self)
+		--[[
 		self.current_menu = "Options"
 		UI_Mods.Buttons.Press(gui.get_node("options"), "Options")
 		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(960,110,0), false)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(960,110,0), false)
+		--UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(960,110,0), false)
 		UI_Mods.Submenu.toggle_menu("Options", vmath.vector3(640,0,0), true)
 		UI_Mods.Buttons.Hover(gui.get_node("Options/back"), "Back",false)
 		timer.delay(1,false,function (self, handle, time_elapsed)
 			gui.set_enabled(gui.get_node("Options/back"), true)
-		end)
+		end)]]
 	end,
 	["Options/back"] = function (self)
 		gui.set_enabled(gui.get_node("Options/back"), false)
 		UI_Mods.Submenu.toggle_menu("Options", vmath.vector3(0,0,0), false)
 		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,110,0), true)
-		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,110,0), true)
+		--UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,110,0), true)
 		self.current_menu = "Pause"
 	end,
 	["quit"] = leave,

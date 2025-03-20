@@ -65,6 +65,8 @@ nodes {
   layer: "foreground"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -79,6 +81,8 @@ nodes {
   layer: "foreground"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -128,6 +132,8 @@ nodes {
   layer: "foreground"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -162,6 +168,8 @@ nodes {
   parent: "main"
   layer: "foreground"
   inherit_alpha: true
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -181,6 +189,8 @@ nodes {
   layer: "foreground"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -205,6 +215,8 @@ nodes {
   layer: "foreground"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -229,6 +241,8 @@ nodes {
   layer: "foreground"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -253,6 +267,8 @@ nodes {
   layer: "foreground"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   position {
@@ -261,7 +277,7 @@ nodes {
   }
   size {
     x: 325.0
-    y: 50.0
+    y: 150.0
   }
   color {
     x: 0.949
@@ -269,7 +285,7 @@ nodes {
     z: 0.949
   }
   type: TYPE_TEXT
-  text: "Click twice to purchase"
+  text: "Shop is not yet implemented"
   font: "sobiscuit_medium"
   id: "info"
   xanchor: XANCHOR_RIGHT

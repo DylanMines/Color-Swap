@@ -319,7 +319,7 @@ nodes {
 }
 nodes {
   position {
-    y: 400.0
+    y: 250.0
   }
   type: TYPE_BOX
   texture: "Buttons/00_Resume"
@@ -338,6 +338,8 @@ nodes {
   parent: "pause_menu"
   layer: "middleground1"
   size_mode: SIZE_MODE_AUTO
+  enabled: false
+  visible: false
 }
 nodes {
   type: TYPE_TEMPLATE

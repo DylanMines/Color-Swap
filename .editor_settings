@@ -17,18 +17,6 @@
   :workflow {
     :recent-files [
       [
-        "/UI/Star.particlefx"
-        :scene
-      ]
-      [
-        "/UI/UIbackwithbar.atlas"
-        :scene
-      ]
-      [
-        "/main/stars.atlas"
-        :scene
-      ]
-      [
         "/UI/Main/Main.gui"
         :scene
       ]
@@ -129,19 +117,31 @@
         :scene
       ]
       [
-        "/UI/in_game/in_game_ui.gui"
-        :scene
-      ]
-      [
         "/game.project"
         :cljfx-form-view
+      ]
+      [
+        "/main/confetti.particlefx"
+        :scene
       ]
       [
         "/UI/assets/icons/icons.atlas"
         :scene
       ]
       [
-        "/main/confetti.particlefx"
+        "/UI/Options_menu/Options.gui"
+        :scene
+      ]
+      [
+        "/UI/Store_menu/abilities.atlas"
+        :scene
+      ]
+      [
+        "/UI/Store_menu/Store.gui"
+        :scene
+      ]
+      [
+        "/UI/in_game/in_game_ui.gui"
         :scene
       ]
     ]
