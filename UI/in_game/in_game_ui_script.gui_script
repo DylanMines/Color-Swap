@@ -9,6 +9,8 @@ function init(self)
 	self.timer = 0
 end
 
+
+
 local function updateClock(self, dt)
 	self.timer = self.timer + dt
 	local minute = string.format("%02d", self.timer/60)
@@ -24,13 +26,14 @@ function update(self, dt)
 	end
 end
 
-local function pause(self)
+local function pause(self, menuName)
+	menuName = menuName or "Pause"
 	if self.running == true then
-		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,110,0), true)
+		UI_Mods.Submenu.toggle_menu(menuName, vmath.vector3(320,110,0), true)
 		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,110,0), true)
 		self.running = false
 	else
-		UI_Mods.Submenu.toggle_menu("Pause", vmath.vector3(320,1136,0), true)
+		UI_Mods.Submenu.toggle_menu(menuName, vmath.vector3(320,1136,0), true)
 		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,1136,0), true)
 		self.running = true
 	end
@@ -56,20 +59,81 @@ local function special_button(self,name,state)
 	msg.post("/game#Board_control", name.."_power",{value = self.special_buttons[name]})
 end
 
-local function saveTime(self)
-	game_save.setTime(self.timer);
+--[[
+1 star: score > 700
+2 stars: score > 1000
+3 stars score > 2000
+]]
+local function playStarAnimation(score)
+	local starAnimation = "stars"
+	if score > 2000 then
+		starAnimation = "3_star"
+	elseif score > 1000 then
+		starAnimation = "2_star"
+	elseif score > 700 then
+		starAnimation = "1_star"
+	end
+	local node = gui.get_node("stars")
+    gui.set_texture(node, "stars")
+	gui.play_flipbook(node, starAnimation,nil,{playback_rate = 0.9})
+end
+
+local pieces = {"red","blue","green","yellow","cyan","purple"}
+
+local function setPiecesEnabled()
+	for _,v in ipairs(pieces) do
+		local node = gui.get_node(v)
+		local pieceUsed = game_save.getPiece(v)
+		if pieceUsed then
+			gui.set_color(node, vmath.vector4(1,1,1,1))
+		else
+			gui.set_color(node, vmath.vector4(.1,.1,.1,1))
+		end
+	end
+end
+
+local function setScoreText()
+	gui.set_text(gui.get_node("score"), "score: "..UI_Mods.StringFormat.getCommaValue(score))
+	local highscore = data.getHighScore()
+	local highScoreNode = gui.get_node("win_highscore")
+	if highscore < score then
+		gui.set_text(highScoreNode, "new highscore")
+		data.setHighScore(score)
+	else
+		gui.set_text(highScoreNode, "highscore: "..UI_Mods.StringFormat.getCommaValue(highscore))
+	end
+end
+
+local function endGame(self,score)
+	pause(self,"Win")
+	gui.set_enabled(gui.get_node("pause_menu"), false)
+	gui.set_enabled(gui.get_node("win_menu"), true)
+	UI_Mods.Clock.setTime(gui.get_node("clock_hand"), 0)
+	self.running = false
+
+	timer.delay(0.9, false, function (self, handle, time_elapsed)
+		playStarAnimation(score)
+	end)
+	
+	setPiecesEnabled()
+	setScoreText()
+	
+	local size = game_save.getSize()
+	gui.set_text(gui.get_node("size_text"), size.x.." x "..size.y)
+
+end
+
+local function startGame(self,time) --simply for ease of reading
+	self.timer = time
+	self.running = true
+	UI_Mods.Clock.setTime(gui.get_node("clock_hand"), self.timer/60)
+	gui.set_enabled(gui.get_node("pause_menu"), false)
+	gui.set_enabled(gui.get_node("win_menu"), true)
 end
 
 local message_functions = {
 	["begin_timer"] = function (self,message,sender)
-		self.timer = message.time
-		self.running = true
-		UI_Mods.Clock.setTime(gui.get_node("clock_hand"), self.timer/60)
-	end,
-	["stop_timer"] = function (self,message,sender)
-		UI_Mods.Clock.setTime(gui.get_node("clock_hand"), 0)
-		msg.post(sender, "end_time",{time = self.timer})
-		self.running = false
+		startGame(self,message.time)
 	end,
 	["switch_done"] = function (self,message,sender)
 		special_button(self, "switch",false)
@@ -80,7 +144,7 @@ local message_functions = {
 	   gui.set_text(gui.get_node("text/crystals"),data.getCrystals())
    end,
    ["game_end"] = function (self,message,sender)
-	   self.timer = 0
+	   endGame(self,message.score)
    end,
    ["unpause"] = function (self,message,sender)
 	   pause(self)
@@ -103,15 +167,30 @@ local function changeToMain()
 		end)
 end
 
+local function leave(self,win)
+	self.current_menu = "Start"
+	self.current_state = "Waiting"
+	msg.post("/game#Board_control", "clear")
+	UI_Mods.Buttons.Press(gui.get_node("quit"), "Quit")
+	if win then
+		pause(self,"Win")
+		timer.delay(0.5, false, function (self, handle, time_elapsed)
+			gui.play_flipbook(gui.get_node("stars"), "stars")
+		end)
+		
+	else pause(self) end -- if the quit button is shown the game is already paused, this is incase the game is resumed later
+	self.running = false -- don't let the timer keep going though (hacky fix could use a better implementation of pause)
+	changeToMain()
+end
+
 local pick_node_actions = {
 	--Abilities
-	["switch_power"] = function (self) 
+	["switch_power"] = function (self)
+		return -- do nothing
 		special_button(self,"switch")
 	end,
 	--PAUSE
-	["pause"] = function (self) 
-		pause(self)
-	end,
+	["pause"] = pause,
 	["resume"] = function (self) 
 		UI_Mods.Buttons.Press(gui.get_node("resume"), "Resume")
 		pause(self)
@@ -134,15 +213,10 @@ local pick_node_actions = {
 		UI_Mods.Submenu.toggle_menu("Top", vmath.vector3(320,110,0), true)
 		self.current_menu = "Pause"
 	end,
-	["quit"] = function (self)
-		self.current_menu = "Start"
-		self.current_state = "Waiting"
-		msg.post("/game#Board_control", "clear")
-		UI_Mods.Buttons.Press(gui.get_node("quit"), "Quit")
-		pause(self) -- if the quit button is shown the game is already paused, this is incase the game is resumed later
-		self.running = false -- don't let the timer keep going though (hacky fix could use a better implementation of pause)
-		changeToMain()
-	end
+	["quit"] = leave,
+	["quit1"] = function (self)
+		leave(self,true)
+	end,
 }
 
 function on_input(self, action_id, action)

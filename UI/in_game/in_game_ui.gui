@@ -35,6 +35,18 @@ textures {
   name: "clock_tex"
   texture: "/UI/assets/clock/clock_tex.atlas"
 }
+textures {
+  name: "stars"
+  texture: "/UI/assets/stars/stars.atlas"
+}
+textures {
+  name: "icons"
+  texture: "/UI/assets/icons/icons.atlas"
+}
+textures {
+  name: "pieces"
+  texture: "/assets/piece_assets/pieces.atlas"
+}
 nodes {
   position {
     x: 320.0
@@ -84,6 +96,7 @@ nodes {
   layer: "middleground1"
   inherit_alpha: true
   perimeterVertices: 360
+  enabled: false
 }
 nodes {
   position {
@@ -118,7 +131,7 @@ nodes {
 }
 nodes {
   position {
-    x: -30.0
+    x: 183.0
     y: -55.0
   }
   size {
@@ -133,6 +146,7 @@ nodes {
   parent: "ui_top"
   layer: "middleground1"
   inherit_alpha: true
+  enabled: false
 }
 nodes {
   position {
@@ -147,7 +161,7 @@ nodes {
     y: 25.0
   }
   type: TYPE_TEXT
-  text: "0/24"
+  text: "0"
   font: "sobiscuit_small"
   id: "text/crystals"
   xanchor: XANCHOR_LEFT
@@ -305,7 +319,7 @@ nodes {
 }
 nodes {
   position {
-    y: 250.0
+    y: 400.0
   }
   type: TYPE_BOX
   texture: "Buttons/00_Resume"
@@ -316,7 +330,7 @@ nodes {
 }
 nodes {
   position {
-    y: 400.0
+    y: 250.0
   }
   type: TYPE_BOX
   texture: "Buttons/00_Options"
@@ -355,6 +369,356 @@ nodes {
   id: "Options/back"
   parent: "Options/main"
   template_node_child: true
+}
+nodes {
+  position {
+    x: 320.0
+    y: 1136.0
+    z: 0.5
+  }
+  size {
+    x: 640.0
+    y: 1136.0
+  }
+  color {
+    x: 0.302
+    y: 0.302
+    z: 0.302
+  }
+  type: TYPE_BOX
+  id: "win_menu"
+  pivot: PIVOT_S
+  adjust_mode: ADJUST_MODE_STRETCH
+  inherit_alpha: true
+}
+nodes {
+  position {
+    y: 941.0
+  }
+  scale {
+    x: 1.2
+    y: 1.2
+  }
+  size {
+    x: 200.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "Game finished!"
+  font: "sobiscuit_large"
+  id: "win_title"
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "win_menu"
+  layer: "middleground1"
+}
+nodes {
+  position {
+    y: 657.0
+  }
+  size {
+    x: 280.0
+    y: 60.0
+  }
+  type: TYPE_TEXT
+  text: "score: 1,450"
+  font: "sobiscuit_large"
+  id: "score"
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "win_menu"
+  layer: "middleground1"
+}
+nodes {
+  position {
+    y: 100.0
+  }
+  type: TYPE_BOX
+  texture: "Buttons/00_Quit"
+  id: "quit1"
+  parent: "win_menu"
+  layer: "middleground1"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    y: 800.0
+  }
+  scale {
+    x: 1.55
+    y: 1.5
+  }
+  type: TYPE_BOX
+  texture: "stars/stars"
+  id: "stars"
+  parent: "win_menu"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    y: 581.0
+  }
+  size {
+    x: 280.0
+    y: 60.0
+  }
+  type: TYPE_TEXT
+  text: "new highscore"
+  font: "sobiscuit_large"
+  id: "win_highscore"
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "win_menu"
+  layer: "middleground1"
+}
+nodes {
+  position {
+    x: -80.0
+    y: 474.0
+  }
+  type: TYPE_BOX
+  texture: "icons/size_icon_x"
+  id: "size"
+  parent: "win_menu"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 60.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "5 x 3"
+  font: "sobiscuit_large"
+  id: "size_text"
+  pivot: PIVOT_W
+  parent: "size"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    y: 289.0
+  }
+  size {
+    x: 346.0
+    y: 230.0
+  }
+  type: TYPE_BOX
+  id: "pieces_used"
+  parent: "win_menu"
+  inherit_alpha: true
+  alpha: 0.0
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 115.0
+  }
+  scale {
+    x: 0.9
+    y: 0.9
+  }
+  type: TYPE_BOX
+  texture: "pieces/Blue"
+  id: "blue"
+  pivot: PIVOT_S
+  parent: "pieces_used"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: -115.0
+  }
+  scale {
+    x: 0.9
+    y: 0.9
+  }
+  type: TYPE_BOX
+  texture: "pieces/Red"
+  id: "red"
+  pivot: PIVOT_S
+  parent: "pieces_used"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  scale {
+    x: 0.9
+    y: 0.9
+  }
+  type: TYPE_BOX
+  texture: "pieces/Green"
+  id: "green"
+  pivot: PIVOT_S
+  parent: "pieces_used"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: -115.0
+  }
+  scale {
+    x: 0.9
+    y: 0.9
+  }
+  type: TYPE_BOX
+  texture: "pieces/Yellow"
+  id: "yellow"
+  pivot: PIVOT_N
+  parent: "pieces_used"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  scale {
+    x: 0.9
+    y: 0.9
+  }
+  type: TYPE_BOX
+  texture: "pieces/Cyan"
+  id: "cyan"
+  pivot: PIVOT_N
+  parent: "pieces_used"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 115.0
+  }
+  scale {
+    x: 0.9
+    y: 0.9
+  }
+  type: TYPE_BOX
+  texture: "pieces/Purple"
+  id: "purple"
+  pivot: PIVOT_N
+  parent: "pieces_used"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    y: 289.0
+  }
+  scale {
+    x: 1.2
+    y: 1.2
+  }
+  size {
+    x: 128.0
+    y: 128.0
+  }
+  type: TYPE_BOX
+  id: "pieces_used_1"
+  parent: "win_menu"
+  inherit_alpha: true
+  alpha: 0.0
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+}
+nodes {
+  rotation {
+    z: 120.0
+  }
+  size {
+    x: 128.0
+    y: 128.0
+  }
+  color {
+    z: 0.0
+  }
+  type: TYPE_PIE
+  id: "pie_yellow"
+  parent: "pieces_used_1"
+  pieFillAngle: 120.0
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  size {
+    x: 128.0
+    y: 128.0
+  }
+  type: TYPE_PIE
+  id: "pie_cyan"
+  parent: "pieces_used_1"
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+}
+nodes {
+  size {
+    x: 128.0
+    y: 128.0
+  }
+  type: TYPE_PIE
+  id: "pie_purple"
+  parent: "pieces_used_1"
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+}
+nodes {
+  size {
+    x: 128.0
+    y: 128.0
+  }
+  color {
+    x: 0.702
+    y: 0.102
+    z: 0.102
+  }
+  type: TYPE_PIE
+  id: "pie_red"
+  parent: "pieces_used_1"
+  pieFillAngle: 120.0
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  rotation {
+    z: 120.0
+  }
+  size {
+    x: 128.0
+    y: 128.0
+  }
+  color {
+    x: 0.0
+    z: 0.0
+  }
+  type: TYPE_PIE
+  id: "pie_green"
+  parent: "pieces_used_1"
+  pieFillAngle: 120.0
+  size_mode: SIZE_MODE_AUTO
+  enabled: false
+}
+nodes {
+  rotation {
+    z: 240.0
+  }
+  size {
+    x: 128.0
+    y: 128.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+  }
+  type: TYPE_PIE
+  id: "pie_blue"
+  parent: "pieces_used_1"
+  pieFillAngle: 120.0
+  size_mode: SIZE_MODE_AUTO
 }
 layers {
   name: "background"

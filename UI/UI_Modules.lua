@@ -102,6 +102,8 @@ function M.Submenu.toggle_menu(menu_type,location,enable,duration)
         node = gui.get_node("ui_top")
 	elseif menu_type == "Pause" then
 		node = gui.get_node("pause_menu")
+	elseif menu_type == "Win" then
+		node = gui.get_node("win_menu")
     else
         node = M.Submenu.get_submenu_node(menu_type,"main")
     end

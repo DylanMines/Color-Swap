@@ -17,34 +17,6 @@
   :workflow {
     :recent-files [
       [
-        "/background/background.go"
-        :scene
-      ]
-      [
-        "/UI/Icons/icons.atlas"
-        :scene
-      ]
-      [
-        "/UI/Loading/loading.atlas"
-        :scene
-      ]
-      [
-        "/UI/Loading/Loading.gui"
-        :scene
-      ]
-      [
-        "/UI/End_game/End_game.gui"
-        :scene
-      ]
-      [
-        "/UI/Pause_game/Pause.gui"
-        :scene
-      ]
-      [
-        "/UI/assets/icons/icons.atlas"
-        :scene
-      ]
-      [
         "/UI/Star.particlefx"
         :scene
       ]
@@ -117,10 +89,6 @@
         :scene
       ]
       [
-        "/UI/in_game/in_game_ui.gui"
-        :scene
-      ]
-      [
         "/game.project"
         :cljfx-form-view
       ]
@@ -142,6 +110,38 @@
       ]
       [
         "/assets/piece_assets/pieces.atlas"
+        :scene
+      ]
+      [
+        "/UI/Pause_game/Pause.gui"
+        :scene
+      ]
+      [
+        "/UI/in_game/ui_tex_grey.material"
+        :cljfx-form-view
+      ]
+      [
+        "/builtins/materials/gui.material"
+        :cljfx-form-view
+      ]
+      [
+        "/builtins/materials/gui_paged_atlas.material"
+        :cljfx-form-view
+      ]
+      [
+        "/UI/in_game/gui.material"
+        :cljfx-form-view
+      ]
+      [
+        "/UI/assets/icons/icons.atlas"
+        :scene
+      ]
+      [
+        "/UI/New_game/New.gui"
+        :scene
+      ]
+      [
+        "/UI/in_game/in_game_ui.gui"
         :scene
       ]
     ]

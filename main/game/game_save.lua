@@ -4,7 +4,15 @@ local state = { --private static dictionary for my java head
     time = 0,
     size = vmath.vector3(0),
     template = {},
-    board = {}
+    board = {},
+    pieces = {
+        red = true,
+        blue = true,
+        green = true;
+        yellow = false,
+        cyan = false,
+        purple = false;
+    }
 }
 
 function M.setTime(num)
@@ -47,8 +55,22 @@ function M.getBoard()
     return state.board;
 end
 
+function M.setPieces(pieces)
+    state.pieces = pieces
+end
+
+function M.getPiece(piece)
+    return state.pieces[piece]
+end
+
+function M.getPieceDictionary()
+    return state.pieces
+end
+
 function M.setStateTable(table)
-    state = table;
+    for k,v in pairs(table) do
+        state[k] = table[k] or state[k] --restore default if no value is given
+    end
 end
 
 function M.getStateTable()

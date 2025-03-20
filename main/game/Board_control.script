@@ -126,6 +126,7 @@ local function generate_board(self,sizex,sizey,pieces,save)
 		game_save.setTime(0);
 		local new_pieces,av = create_pieces(sizex,sizey,pieces)
 		total = av
+		game_save.setPieces(pieces)
 		place_background_pieces(self,new_pieces,true)
 		place_pieces(self,shuffle_pieces(new_pieces))
 		game_save.time = 0
@@ -158,22 +159,6 @@ function on_message(self, message_id, message, sender)
 		if message.value == false then
 			self.last = vmath.vector3()
 		end
-	elseif message_id == hash("end_time") then --calculate score
-		data.setSaved(false)
-		--print(self.board_size.x)
-		local difficulty = ((self.board_size.x * 1.4) * (self.board_size.y * 1.4) * self.board_size.z) - 20
-		local score = math.floor((difficulty/message.time) * 1005)
-		--print(difficulty,message.time)
-		if score < 10 then
-			score = 10
-		end
-		local high = data.getHighScore()
-		print(high)
-		if high < score then data.setHighScore(score) end
-		data.setExp(math.floor(data.getExp() + score/2.8))
-		msg.post(sender, "game_end")
-		
-		msg.post("/gui#in_game_ui", "game_end",{score = score})
 	elseif message_id == hash("screen_to_world_callback") then
 		tap(message.x, message.y,self)
 	elseif message_id == hash("continue") then
@@ -311,10 +296,27 @@ local function saveAndCheck(self)
 	return complete == 0
 end
 
-local function endGame()
-	msg.post("/gui#in_game_ui", "stop_timer")
-		msg.post("/sfx#SoundEffectController","play_sound_effect",{soundID = "clapping"})
-		particlefx.play("/confetti#confetti")
+local function calcScore(board_size)
+	local difficulty = ((board_size.x * 1.4) * (board_size.y * 1.4) * board_size.z)
+	local score = math.floor((difficulty/game_save.getTime()) * 1005)
+	--print(difficulty,message.time)
+	if score < 10 then
+		score = 10
+	end
+	return score
+end
+
+local function endGame(self)
+	data.setSaved(false)
+	--print(self.board_size.x)
+	score = calcScore(self.board_size)
+	local high = data.getHighScore()
+	
+	--data.setExp(math.floor(data.getExp() + score/2.8))
+	
+	msg.post("/gui#in_game_ui", "game_end",{score = score})
+	msg.post("/sfx#SoundEffectController","play_sound_effect",{soundID = "clapping"})
+	--particlefx.play("/confetti#confetti")
 end
 
 function tap(x,y,self)
@@ -340,7 +342,7 @@ function tap(x,y,self)
 	end
 	if saveAndCheck(self) == true then
 		self.complete = true
-		endGame()
+		endGame(self)
 	end
 end
 

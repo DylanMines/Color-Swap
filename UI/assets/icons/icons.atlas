@@ -7,4 +7,7 @@ images {
 images {
   image: "/UI/assets/icons/Icon_basic.png"
 }
+images {
+  image: "/UI/assets/icons/size_icon_x.png"
+}
 extrude_borders: 2

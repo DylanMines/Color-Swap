@@ -28,8 +28,8 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
      inkscape:zoom="2.3953242"
-     inkscape:cx="-12.733141"
-     inkscape:cy="92.471825"
+     inkscape:cx="4.1748002"
+     inkscape:cy="62.413263"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="0"
@@ -75,6 +75,62 @@
          sodipodi:nodetypes="sssssscsss"
          transform="scale(0.5)"
          id="path62" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ColoredSquare"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Colored square"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
+         d="M -5,-5 V 5 H 5 V -5 Z"
+         id="path21" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Colored diamond"
+       id="ColoredDiamond"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.45)"
+         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
+         d="M 0,-7.0710768 -7.0710894,0 0,7.0710589 7.0710462,0 Z"
+         id="path22" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Stop"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path23" />
     </marker>
     <marker
        style="overflow:visible"
@@ -275,16 +331,15 @@
        id="path16" />
     <g
        id="g61"
-       style="fill:#ff0000;stroke:#aa0000"
-       transform="rotate(90,60.000004,59.999984)">
+       style="fill:#ff0000;stroke:#aa0000">
       <g
          id="g64">
         <path
-           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1);marker-end:url(#RoundedArrow)"
+           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow);marker-start:url(#CapRibbon1)"
            d="m 60.000004,59.999984 -8e-6,-30.795727"
            id="path61" />
         <path
-           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1);marker-end:url(#RoundedArrow-3)"
+           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow-3);marker-start:url(#CapRibbon1)"
            d="m 60.000004,59.999984 8e-6,30.795727"
            id="path61-2" />
       </g>
@@ -299,34 +354,6 @@
            style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#X);marker-end:url(#RoundedArrow-3-1)"
            d="M 59.999985,59.999992 29.204258,60"
            id="path61-2-5" />
-      </g>
-    </g>
-    <g
-       id="g10"
-       style="fill:#ff0000;stroke:#aa0000"
-       transform="rotate(180,60.000004,59.999984)">
-      <g
-         id="g6">
-        <path
-           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1);marker-end:url(#RoundedArrow)"
-           d="m 60.000004,59.999984 -8e-6,-30.795727"
-           id="path5" />
-        <path
-           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1);marker-end:url(#RoundedArrow-3)"
-           d="m 60.000004,59.999984 8e-6,30.795727"
-           id="path6" />
-      </g>
-      <g
-         id="g9"
-         style="display:none">
-        <path
-           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#X);marker-end:url(#RoundedArrow-4)"
-           d="m 59.999985,59.999992 30.795727,-8e-6"
-           id="path7" />
-        <path
-           style="fill:#ff0000;stroke:#aa0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#X);marker-end:url(#RoundedArrow-3-1)"
-           d="M 59.999985,59.999992 29.204258,60"
-           id="path9" />
       </g>
     </g>
   </g>
