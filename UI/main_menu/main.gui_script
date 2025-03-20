@@ -90,6 +90,7 @@ local pick_node_actions = {
 	end,
 	--START
 	["Start/Store"] = function (self) 
+		if self.current_menu ~= "Start" then return end
 		self.current_menu = "Store"
 		UI_Mods.Buttons.Press(gui.get_node("Start/Store"), "Store")
 		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(-640,0,0), false)
@@ -100,7 +101,8 @@ local pick_node_actions = {
 		end)
 	end,
 
-	["Start/Options"] = function (self) 
+	["Start/Options"] = function (self)
+		if self.current_menu ~= "Start" then return end
 		self.current_menu = "Options"
 		--print(self.current_state)
 		UI_Mods.Buttons.Press(gui.get_node("Start/Options"), "Options")
@@ -119,6 +121,7 @@ local pick_node_actions = {
 		end)
 	end,
 	["Start/New"] = function (self)
+		if self.current_menu ~= "Start" then return end
 		self.current_menu = "New"
 		UI_Mods.Buttons.Press(gui.get_node("Start/New"), "New")
 		UI_Mods.Submenu.toggle_menu("Start", vmath.vector3(0,1136,0), false)
@@ -126,13 +129,14 @@ local pick_node_actions = {
 		self.current_state = "Waiting"
 	end,
 	["Start/Continue"] = function (self)
+		if self.current_menu ~= "Start" then return end
 		if not gui.is_enabled(gui.get_node("Start/Continue")) then return end
 		self.current_menu = "Game"
 		self.running = true
 		msg.post("/game#Board_control", "continue")
 		UI_Mods.Buttons.Press(gui.get_node("Start/Continue"), "Continue")
 		changeToGame()
-		self.current_state = "Playing"
+		self.current_menu = "Start"
 	end,
 	--NEW GAME
 	["New/h_size"] = function (self)
