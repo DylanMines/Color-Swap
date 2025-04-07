@@ -1,5 +1,24 @@
 {
   :bundle {
+    :android {
+      :architectures #{
+        "armv7-android"
+      }
+      :build_report true
+      :bundle_format #{
+        "apk"
+      }
+      :contentless false
+      :install true
+      :key-pass ""
+      :keystore ""
+      :keystore-pass ""
+      :launch true
+      :liveupdate false
+      :texture_compression "enabled"
+      :variant "debug"
+      :with_symbols true
+    }
     :html5 {
       :architectures #{
         "wasm-web"

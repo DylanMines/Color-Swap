@@ -8,7 +8,6 @@ Thumbs.db
 .project
 .cproject
 builtins
-/.defold/api
+/.defold
 /.editor_settings
-.editor_settings
 /bundles
