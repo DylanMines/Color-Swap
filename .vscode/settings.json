@@ -7,7 +7,8 @@
         ".defold/api",
         ".defold/assets",
         "~/.config/Code/User/globalStorage/astronachos.defold",
-        "~/.config/Code/User/workspaceStorage/78e09d52ae76de99ef4793a78a1ba833/astronachos.defold"
+        "~/.config/Code/User/workspaceStorage/78e09d52ae76de99ef4793a78a1ba833/astronachos.defold",
+        "~/.config/Code/User/workspaceStorage/34e6973fa8567fd1fde3548b745fee46/astronachos.defold"
     ],
     "Lua.diagnostics.libraryFiles": "Disable",
     "Lua.workspace.ignoreDir": [
