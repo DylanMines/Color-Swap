@@ -1,3 +1,6 @@
+images {
+  image: "/UI/assets/crystal/images/00.png"
+}
 animations {
   id: "crystal_click"
   images {
@@ -63,6 +66,6 @@ animations {
   images {
     image: "/UI/assets/crystal/images/20.png"
   }
-  fps: 44
+  fps: 60
 }
 extrude_borders: 2

@@ -14,7 +14,7 @@ powerup: -150 score
 
 local data = require("main.game_data")
 local game_save = require("main.game.game_save")
-local score = require("main.score")
+local scoreCalculator = require("main.score")
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
@@ -302,9 +302,9 @@ end
 local function endGame(self)
 	data.setSaved(false)
 	--print(self.board_size.x)
-	score = score.getScore()
+	--local score = scoreCalculator.getScore()
 	local high = data.getHighScore()
-	
+	data.setCrystals(data.getCrystals()+scoreCalculator.getCrystals())
 	--data.setExp(math.floor(data.getExp() + score/2.8))
 	
 	msg.post("/gui#in_game_ui", "game_end")

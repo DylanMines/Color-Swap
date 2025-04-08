@@ -2,6 +2,7 @@ local data = require("main.game_data")
 local game_save = require("main.game.game_save")
 local UI_Mods = require("UI.UI_Modules")
 local scoreCalculator = require("main.score")
+local crystal_animations = require("UI.in_game.crystal_animations")
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
@@ -125,6 +126,7 @@ local function endGame(self)
 	gui.set_text(gui.get_node("size_text"), size.x.." x "..size.y)
 
 	gui.play_particlefx(gui.get_node("confetti"))
+	crystal_animations.playCrystalAnimation(scoreCalculator.getCrystals())
 end
 
 local function startGame(self,time) --simply for ease of reading
