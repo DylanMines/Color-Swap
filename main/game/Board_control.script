@@ -14,6 +14,8 @@ powerup: -150 score
 
 local data = require("main.game_data")
 local game_save = require("main.game.game_save")
+local score = require("main.score")
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.pos = go.get_position()
@@ -296,25 +298,16 @@ local function saveAndCheck(self)
 	return complete == 0
 end
 
-local function calcScore(board_size)
-	local difficulty = ((board_size.x * 1.4) * (board_size.y * 1.4) * board_size.z)
-	local score = math.floor((difficulty/game_save.getTime()) * 1005)
-	--print(difficulty,message.time)
-	if score < 10 then
-		score = 10
-	end
-	return score
-end
 
 local function endGame(self)
 	data.setSaved(false)
 	--print(self.board_size.x)
-	score = calcScore(self.board_size)
+	score = score.getScore()
 	local high = data.getHighScore()
 	
 	--data.setExp(math.floor(data.getExp() + score/2.8))
 	
-	msg.post("/gui#in_game_ui", "game_end",{score = score})
+	msg.post("/gui#in_game_ui", "game_end")
 	msg.post("/sfx#SoundEffectController","play_sound_effect",{soundID = "clapping"})
 	--particlefx.play("/confetti#confetti")
 end

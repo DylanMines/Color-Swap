@@ -1,6 +1,7 @@
 local data = require("main.game_data")
 local game_save = require("main.game.game_save")
 local UI_Mods = require("UI.UI_Modules")
+local scoreCalculator = require("main.score")
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
@@ -38,7 +39,7 @@ local function pause(self, menuName)
 	end
 end
 
-local function change_mute(self)
+local function change_mute(self) --DEPRICATED: this will be handled by the options menu in the future
 	if self.muted then
 		gui.play_flipbook(gui.get_node("mute"), "button_mute")
 	else
@@ -63,6 +64,7 @@ end
 2 stars: score > 1000
 3 stars score > 2000
 ]]
+
 local function playStarAnimation(score)
 	local starAnimation = "stars"
 	if score > 2000 then
@@ -91,7 +93,7 @@ local function setPiecesEnabled()
 	end
 end
 
-local function setScoreText()
+local function setScoreText(score)
 	gui.set_text(gui.get_node("score"), "score: "..UI_Mods.StringFormat.getCommaValue(score))
 	local highscore = data.getHighScore()
 	local highScoreNode = gui.get_node("win_highscore")
@@ -103,8 +105,10 @@ local function setScoreText()
 	end
 end
 
-local function endGame(self,score)
+local function endGame(self)
 	pause(self,"Win")
+
+	local score = scoreCalculator.getScore()
 	gui.set_enabled(gui.get_node("pause_menu"), false)
 	gui.set_enabled(gui.get_node("win_menu"), true)
 	UI_Mods.Clock.setTime(gui.get_node("clock_hand"), 0)
@@ -115,7 +119,7 @@ local function endGame(self,score)
 	end)
 	
 	setPiecesEnabled()
-	setScoreText()
+	setScoreText(score)
 	
 	local size = game_save.getSize()
 	gui.set_text(gui.get_node("size_text"), size.x.." x "..size.y)
@@ -149,7 +153,7 @@ local message_functions = {
 	   gui.set_text(gui.get_node("text/crystals"),data.getCrystals())
    end,
    ["game_end"] = function (self,message,sender)
-	   endGame(self,message.score)
+	   endGame(self)
    end,
    ["unpause"] = function (self,message,sender)
 	   pause(self)
