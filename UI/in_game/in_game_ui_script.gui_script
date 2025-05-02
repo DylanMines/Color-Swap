@@ -8,6 +8,8 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.running = false
 	self.timer = 0
+	self.special_buttons = {switch = false}
+	--data.setSwitchPower(10) --testing ONLY
 end
 
 
@@ -53,7 +55,7 @@ local function special_button(self,name,state)
 	if self.special_buttons[name] == true or state == false then
 		self.special_buttons[name] = false
 		gui.play_flipbook(gui.get_node(name.."_power"), name.."_power_reverse")
-	elseif data[name.."_power"] >= 1 then
+	elseif data.getSwitchPower() >= 1 then
 		self.special_buttons[name] = true
 		gui.play_flipbook(gui.get_node(name.."_power"), name.."_power")
 	end

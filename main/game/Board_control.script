@@ -328,7 +328,7 @@ function tap(x,y,self)
 		self.last = tile
 	elseif self.powers.switch == true then
 		swap(self,{tile.x, tile.y},{self.last.x,self.last.y})
-		data.switch_power = data.switch_power - 1
+		data.setSwitchPower(data.getSwitchPower()-1)
 		msg.post("/gui#in_game_ui", "switch_done")
 	else
 		swap(self,{tile.x, tile.y})

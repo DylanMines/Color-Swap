@@ -5,7 +5,7 @@ function init(self)
 	self.load_bar = UI_Mods.Submenu.get_submenu_node("Loading","loading_bar")
 	msg.post(".", "acquire_input_focus")
 	self.running = false
-	self.special_buttons = {switch = false}
+	
 	self.muted = false
 	self.timer = -1
 	self.flashing = false
