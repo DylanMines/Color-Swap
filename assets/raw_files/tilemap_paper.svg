@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="770.47485"
+   height="513.06067"
+   viewBox="0 0 770.47485 513.06067"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="bitmap.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="tilemap_paper.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="4"
+     inkscape:cx="612"
+     inkscape:cy="118"
+     inkscape:window-width="2560"
+     inkscape:window-height="1372"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="2.4748738"
+       originy="1.0606602"
+       spacingx="32"
+       spacingy="32"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="4"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient101"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#be0000;stop-opacity:1;"
+         offset="0"
+         id="stop101" />
+      <stop
+         style="stop-color:#ff1b1b;stop-opacity:1;"
+         offset="1"
+         id="stop102" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 257.06067 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="512 : 257.06067 : 1"
+       inkscape:persp3d-origin="256 : 171.72734 : 1"
+       id="perspective87" />
+    <filter
+       y="-0.050458588"
+       height="1.1009172"
+       x="-0.071000479"
+       width="1.142001"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter2">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence1" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap1" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting1">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight1" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite1" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite2"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend2" />
+    </filter>
+    <filter
+       y="-0.027343735"
+       height="1.0546875"
+       x="-0.027343735"
+       width="1.0546875"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter51">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence50" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap50" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting50">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight50" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite50" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite51"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend51" />
+    </filter>
+    <filter
+       y="0"
+       height="1"
+       x="0"
+       width="1"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter53">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence51" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap51" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting51">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight51" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite52" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite53"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend53" />
+    </filter>
+    <filter
+       y="0"
+       height="1"
+       x="0"
+       width="1"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter55">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence53" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap53" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting53">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight53" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite54" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite55"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend55" />
+    </filter>
+    <filter
+       y="0"
+       height="1"
+       x="0"
+       width="1"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter57">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence55" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap55" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting55">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight55" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite56" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite57"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend57" />
+    </filter>
+    <filter
+       y="0"
+       height="1"
+       x="0"
+       width="1"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter59">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence57" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap57" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting57">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight57" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite58" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite59"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend59" />
+    </filter>
+    <filter
+       y="-0.0085802095"
+       height="1.0171604"
+       x="-0.0085802095"
+       width="1.0171604"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter61">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.040000000000000001"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence59" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="4"
+         result="result3"
+         id="feDisplacementMap59" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting59">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight59" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite60" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="0"
+         id="feComposite61"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend61" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient101"
+       id="linearGradient102"
+       x1="202.25005"
+       y1="49.295902"
+       x2="241.06094"
+       y2="9.9393396"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(5.0313137,0,0,5.0313137,-812.30971,-38.29748)" />
+    <filter
+       y="0"
+       height="1"
+       x="0"
+       width="1"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter162">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence161" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap161" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting161">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight161" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite161" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite162"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend162" />
+    </filter>
+    <filter
+       y="0"
+       height="1"
+       x="0"
+       width="1"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter164">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence162" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap162" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting162">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight162" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite163" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite164"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend164" />
+    </filter>
+    <filter
+       y="-0.019975502"
+       height="1.0399473"
+       x="-0.020270323"
+       width="1.0405406"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter166">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence164" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap164" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting164">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight164" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite165" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite166"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend166" />
+    </filter>
+    <filter
+       y="0"
+       height="1"
+       x="0"
+       width="1"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter168">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence166" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap166" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting166">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight166" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite167" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite168"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend168" />
+    </filter>
+    <filter
+       y="-0.10606599"
+       height="1.212132"
+       x="-0.10606606"
+       width="1.2121321"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter170">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence168" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap168" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting168">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight168" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite169" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite170"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend170" />
+    </filter>
+    <filter
+       y="-0.10606601"
+       height="1.212132"
+       x="-0.106066"
+       width="1.212132"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter172">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence170" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap170" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting170">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight170" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite171" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite172"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend172" />
+    </filter>
+    <filter
+       y="-0.106066"
+       height="1.212132"
+       x="-0.106066"
+       width="1.212132"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter174">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence172" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap172" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting172">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight172" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite173" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite174"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend174" />
+    </filter>
+    <filter
+       y="-0.07647384"
+       height="1.1529478"
+       x="-0.072928283"
+       width="1.1458575"
+       inkscape:menu-tooltip="Aquarelle paper effect which can be used for pictures as for objects"
+       inkscape:menu="Textures"
+       inkscape:label="Rough Paper"
+       style="color-interpolation-filters:sRGB"
+       id="filter176">
+      <feTurbulence
+         type="fractalNoise"
+         baseFrequency="0.04"
+         numOctaves="5"
+         seed="0"
+         result="result4"
+         id="feTurbulence174" />
+      <feDisplacementMap
+         in="SourceGraphic"
+         in2="result4"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         scale="10"
+         result="result3"
+         id="feDisplacementMap174" />
+      <feDiffuseLighting
+         lighting-color="#e9e6d7"
+         diffuseConstant="1"
+         surfaceScale="2"
+         result="result1"
+         in="result4"
+         id="feDiffuseLighting174">
+        <feDistantLight
+           azimuth="235"
+           elevation="40"
+           id="feDistantLight174" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="in"
+         in="result3"
+         in2="result1"
+         result="result2"
+         id="feComposite175" />
+      <feComposite
+         in2="result1"
+         result="result5"
+         operator="arithmetic"
+         k1="1.7"
+         id="feComposite176"
+         k2="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="result5"
+         in2="result3"
+         mode="normal"
+         id="feBlend176" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(2.4748737,1.0606602)">
+    <g
+       id="g93"
+       inkscape:label="Grid"
+       transform="matrix(1.9999999,0,0,1.9999999,-2.4748737,-1.0606602)">
+      <rect
+         style="fill:#000000;fill-opacity:0.9;stroke:#4d4d4d;stroke-width:9.95555;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;filter:url(#filter51)"
+         id="rect2"
+         width="182.04445"
+         height="182.04445"
+         x="4.9777775"
+         y="4.9777775" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#4d4d4d;stroke-linejoin:round;paint-order:stroke fill markers;filter:url(#filter53);enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="m 62.5,0 v 192 h 3 V 0 Z"
+         id="path67" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#4d4d4d;stroke-linejoin:round;paint-order:stroke fill markers;filter:url(#filter55);enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="m 126.5,0 v 192 h 3 V 0 Z"
+         id="path65" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#4d4d4d;stroke-linejoin:round;paint-order:stroke fill markers;filter:url(#filter57);enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="m 0,62.5 v 3 h 192 v -3 z"
+         id="path63" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#4d4d4d;stroke-linejoin:round;filter:url(#filter59);enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="m 0,126.41797 v 3.16406 h 192 v -3.16406 z"
+         id="path62" />
+      <rect
+         style="fill:none;stroke:#999999;stroke-width:3.12486;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;filter:url(#filter61)"
+         id="rect4"
+         width="182.09695"
+         height="182.09695"
+         x="4.9515228"
+         y="4.9515228" />
+      <rect
+         style="fill:#4d4d4d;fill-opacity:0.9;stroke:none;stroke-width:3;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect83"
+         width="3"
+         height="3"
+         x="62.5"
+         y="62.5" />
+      <rect
+         style="fill:#4d4d4d;fill-opacity:0.9;stroke:none;stroke-width:3;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect84"
+         width="3"
+         height="3"
+         x="126.5"
+         y="62.5" />
+      <rect
+         style="fill:#4d4d4d;fill-opacity:0.9;stroke:none;stroke-width:3;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect85"
+         width="3"
+         height="3"
+         x="126.5"
+         y="126.5" />
+      <rect
+         style="fill:#4d4d4d;fill-opacity:0.9;stroke:none;stroke-width:3;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect86"
+         width="3"
+         height="3"
+         x="62.5"
+         y="126.5" />
+    </g>
+    <g
+       id="g99"
+       transform="matrix(2.4940975,0,0,2.4940975,-594.30883,-52.556746)"
+       inkscape:label="Square">
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#800000;stroke-width:5.03131;stroke-linejoin:round;paint-order:stroke fill markers;filter:url(#filter162);enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="M 209.04697,9.5 A 7.5477253,7.5477253 0 0 0 201.5,17.046971 V 178.04901 a 7.5477253,7.5477253 0 0 0 7.54697,7.54697 h 161.00204 a 7.5477253,7.5477253 0 0 0 7.54697,-7.54697 V 17.046971 A 7.5477253,7.5477253 0 0 0 370.04901,9.5 Z m 7.54697,15.093941 h 145.9081 V 170.50204 h -145.9081 z"
+         id="path96"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ff0000;stroke-width:5.03131;stroke-linejoin:round;paint-order:stroke fill markers;filter:url(#filter164);enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="M 209.04697,17.046971 H 370.04901 V 178.04901 H 209.04697 Z"
+         id="path97"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+      <path
+         id="path98"
+         style="opacity:1;fill:url(#linearGradient102);fill-opacity:1;stroke:#800000;stroke-width:7.54697;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;filter:url(#filter166)"
+         d="M 209.04722,17.047242 V 178.052 l 22.48449,27.90088 V 39.5317 l 2.66881,2.668846 V 203.20531 H 395.20533 V 42.200546 L 370.05198,17.047242 Z"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#800000;stroke-width:5.03131;stroke-linejoin:round;paint-order:stroke fill markers;filter:url(#filter168);enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="m 234.20354,34.656569 c -4.16789,4.17e-4 -7.54657,3.379065 -7.54697,7.54697 V 203.20558 c 4e-4,4.1679 3.37908,7.54655 7.54697,7.54697 h 161.00204 c 4.16789,-4.2e-4 7.54657,-3.37907 7.54697,-7.54697 V 42.203539 c -4e-4,-4.167905 -3.37908,-7.546553 -7.54697,-7.54697 z m -0.003,7.543977 H 395.20533 V 203.20531 H 234.20052 Z"
+         id="path100"
+         sodipodi:nodetypes="cccccccccccccc"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+      <path
+         style="fill:#ff0000;fill-opacity:1;stroke:#800000;stroke-width:7.54697;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;filter:url(#filter170)"
+         d="m 372.71873,14.378714 25.15656,25.156569"
+         id="path93"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+      <path
+         style="fill:#ff0000;fill-opacity:1;stroke:#800000;stroke-width:7.54697;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;filter:url(#filter172)"
+         d="m 206.37871,14.378714 25.15657,25.156569"
+         id="path94"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+      <path
+         style="fill:#ff0000;fill-opacity:1;stroke:#800000;stroke-width:7.54697;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;filter:url(#filter174)"
+         d="m 206.37871,180.79771 25.15657,25.15657"
+         id="path95"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+      <path
+         id="rect102"
+         style="fill:none;stroke:#800000;stroke-width:6.04623;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers;filter:url(#filter176)"
+         d="M 291.31147,58.89856 260.6922,58.772576 c -6.33709,-0.02616 -10.89431,3.830143 -10.83282,10.832846 l 0.25207,28.698327"
+         sodipodi:nodetypes="cssc"
+         transform="matrix(0.20383822,0,0,0.20383822,356.32534,24.005133)" />
+    </g>
+  </g>
+</svg>
